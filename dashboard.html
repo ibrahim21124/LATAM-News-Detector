@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>explainerdashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+<div><H1>Model Explainer</H1></div><ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="Feature Importances-tab" data-toggle="tab" href="#Feature Importances" role="tab" aria-controls="Feature Importances" aria-selected="true">Feature Importances</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="Classification Stats-tab" data-toggle="tab" href="#Classification Stats" role="tab" aria-controls="Classification Stats" aria-selected="false">Classification Stats</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="Individual Predictions-tab" data-toggle="tab" href="#Individual Predictions" role="tab" aria-controls="Individual Predictions" aria-selected="false">Individual Predictions</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="What if...-tab" data-toggle="tab" href="#What if..." role="tab" aria-controls="What if..." aria-selected="false">What if...</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="Feature Dependence-tab" data-toggle="tab" href="#Feature Dependence" role="tab" aria-controls="Feature Dependence" aria-selected="false">Feature Dependence</a>
+    </li>
+
+</ul>
+
+<div class="tab-content">
+
+<div class="tab-pane active" id="Feature Importances" role="tabpanel" aria-labelledby="Feature Importances-tab">
+ <div><H1>Feature Importances</H1></div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Feature Importances</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="8e90f3a1-aefd-424b-8b1e-1b91096bf472" class="plotly-graph-div" style="height:280px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("8e90f3a1-aefd-424b-8b1e-1b91096bf472")) {                    Plotly.newPlot(                        "8e90f3a1-aefd-424b-8b1e-1b91096bf472",                        [{"hoverinfo":"text","orientation":"h","x":[0.026991364179082634,0.031530859678922794,0.05886573526780256,0.06754266667299898],"y":["4. Topic_3","3. Topic_2","2. Topic_0","1. Topic_1"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average impact on predicted Prediction<br>(mean absolute SHAP value)"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":280,"margin":{"b":40,"l":49,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    <div></div>
+</div>
+    
+</div>
+        
+</div> 
+     
+</div>
+<div class="tab-pane" id="Classification Stats" role="tabpanel" aria-labelledby="Classification Stats-tab">
+ <div></div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Model performance metrics</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">metric</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accuracy</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <td>precision</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <td>recall</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>f1</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <td>roc_auc_score</td>
+      <td>0.405</td>
+    </tr>
+    <tr>
+      <td>pr_auc_score</td>
+      <td>0.595</td>
+    </tr>
+    <tr>
+      <td>log_loss</td>
+      <td>0.691</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Confusion Matrix</h3><h6 class="card-subtitle">How many false positives and false negatives?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="1d90831b-639d-46a8-a2c7-89641208adf7" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("1d90831b-639d-46a8-a2c7-89641208adf7")) {                    Plotly.newPlot(                        "1d90831b-639d-46a8-a2c7-89641208adf7",                        [{"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]],"hoverinfo":"skip","showscale":false,"x":[" Fake"," True"],"y":[" Fake"," True"],"z":[[0.0,40.0],[0.0,60.0]],"zmax":130,"zmin":0,"type":"heatmap"}],                        {"plot_bgcolor":"#fff","title":{"text":"Confusion Matrix"},"xaxis":{"constrain":"domain","showgrid":false,"tickmode":"array","ticktext":[" Fake"," True"],"tickvals":[" Fake"," True"],"title":{"text":"predicted"}},"yaxis":{"autorange":"reversed","scaleanchor":"x","scaleratio":1,"showgrid":false,"side":"left","tickmode":"array","ticktext":[" Fake"," True"],"tickvals":[" Fake"," True"],"title":{"standoff":20,"text":"observed"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"font":{"size":20},"showarrow":false,"text":"0.0%","x":" Fake","y":" Fake"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(0)","x":" Fake","y":" Fake"},{"font":{"size":20},"showarrow":false,"text":"40.0%","x":" True","y":" Fake"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(40)","x":" True","y":" Fake"},{"font":{"size":20},"showarrow":false,"text":"0.0%","x":" Fake","y":" True"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(0)","x":" Fake","y":" True"},{"font":{"size":20},"showarrow":false,"text":"60.0%","x":" True","y":" True"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(60)","x":" True","y":" True"}],"margin":{"t":40,"b":40,"l":28,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Precision Plot</h3><h6 class="card-subtitle">Does fraction positive increase with predicted probability?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="1b9b3339-b12e-4ab1-b6ad-4882ac01b622" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("1b9b3339-b12e-4ab1-b6ad-4882ac01b622")) {                    Plotly.newPlot(                        "1b9b3339-b12e-4ab1-b6ad-4882ac01b622",                        [{"name":"counts","width":[0.09000000000000001,0.09000000000000001,0.09000000000000004,0.08999999999999998,0.08999999999999998,0.0900000000000001,0.08999999999999998,0.08999999999999998,0.08999999999999998,0.08999999999999998],"x":[0.05,0.15000000000000002,0.25,0.35000000000000003,0.45,0.55,0.6500000000000001,0.75,0.8500000000000001,0.95],"y":[0,0,0,0,0,88,12,0,0,0],"type":"bar"},{"name":"percentage True","x":[null,null,null,null,null,0.539,0.605,null,null,null],"y":[null,null,null,null,null,0.591,0.667,null,null,null],"yaxis":"y2","type":"scatter"}],                        {"plot_bgcolor":"#fff","shapes":[{"type":"line","x0":0.5,"x1":0.5,"xref":"x","y0":0,"y1":1.0,"yref":"y2"}],"title":{"text":"percentage True vs predicted probability"},"xaxis":{"title":{"text":"predicted probability"}},"yaxis":{"title":{"text":"counts"}},"yaxis2":{"overlaying":"y","rangemode":"tozero","side":"right","tickfont":{"color":"rgb(148, 103, 189)"},"title":{"font":{"color":"rgb(148, 103, 189)"},"text":"percentage"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"legend":{"orientation":"h","xanchor":"center","y":-0.2,"x":0.5},"margin":{"t":40,"b":40,"l":40,"r":40},"annotations":[{"text":"cutoff=0.5","x":0.5,"y":0.1,"yref":"y2"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Classification Plot</h3><h6 class="card-subtitle">Distribution of labels above and below cutoff</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="c397c5ca-728c-459d-a4c6-9ec9e0955f62" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("c397c5ca-728c-459d-a4c6-9ec9e0955f62")) {                    Plotly.newPlot(                        "c397c5ca-728c-459d-a4c6-9ec9e0955f62",                        [{"hoverinfo":"text","name":"Fake","text":["<b>0.0</b> (nan%)","<b>40</b> (40.00%)","<b>40.0</b> (40.00%)"],"textposition":"auto","x":["below cutoff","above cutoff","total"],"y":[null,40.0,40.0],"type":"bar"},{"hoverinfo":"text","name":"True","text":["<b>0.0</b> (nan%)","<b>60</b> (60.00%)","<b>60.0</b> (60.00%)"],"textposition":"auto","x":["below cutoff","above cutoff","total"],"y":[null,60.0,60.0],"type":"bar"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Percentage above and below cutoff"},"margin":{"t":40,"b":40,"l":40,"r":40},"barmode":"stack","legend":{"orientation":"h","xanchor":"center","y":-0.2,"x":0.5}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">ROC AUC Plot</h3><h6 class="card-subtitle">Trade-off between False positives and false negatives</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="0b32659f-a3fa-4060-8ef4-27168d0eb352" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("0b32659f-a3fa-4060-8ef4-27168d0eb352")) {                    Plotly.newPlot(                        "0b32659f-a3fa-4060-8ef4-27168d0eb352",                        [{"hoverinfo":"text","mode":"lines","name":"ROC AUC CURVE","text":["threshold: 1.61 <br> FP: 0.00 <br> TP: 0.00","threshold: 0.61 <br> FP: 0.00 <br> TP: 0.02","threshold: 0.61 <br> FP: 0.00 <br> TP: 0.08","threshold: 0.60 <br> FP: 0.10 <br> TP: 0.08","threshold: 0.60 <br> FP: 0.10 <br> TP: 0.13","threshold: 0.60 <br> FP: 0.15 <br> TP: 0.13","threshold: 0.60 <br> FP: 0.15 <br> TP: 0.15","threshold: 0.60 <br> FP: 0.23 <br> TP: 0.15","threshold: 0.58 <br> FP: 0.23 <br> TP: 0.20","threshold: 0.58 <br> FP: 0.28 <br> TP: 0.20","threshold: 0.58 <br> FP: 0.28 <br> TP: 0.25","threshold: 0.58 <br> FP: 0.40 <br> TP: 0.25","threshold: 0.57 <br> FP: 0.40 <br> TP: 0.33","threshold: 0.56 <br> FP: 0.42 <br> TP: 0.33","threshold: 0.55 <br> FP: 0.42 <br> TP: 0.38","threshold: 0.55 <br> FP: 0.47 <br> TP: 0.38","threshold: 0.55 <br> FP: 0.47 <br> TP: 0.40","threshold: 0.55 <br> FP: 0.53 <br> TP: 0.40","threshold: 0.54 <br> FP: 0.53 <br> TP: 0.42","threshold: 0.53 <br> FP: 0.62 <br> TP: 0.42","threshold: 0.53 <br> FP: 0.62 <br> TP: 0.43","threshold: 0.53 <br> FP: 0.65 <br> TP: 0.43","threshold: 0.53 <br> FP: 0.65 <br> TP: 0.47","threshold: 0.52 <br> FP: 0.68 <br> TP: 0.47","threshold: 0.52 <br> FP: 0.68 <br> TP: 0.52","threshold: 0.52 <br> FP: 0.72 <br> TP: 0.52","threshold: 0.52 <br> FP: 0.72 <br> TP: 0.53","threshold: 0.52 <br> FP: 0.75 <br> TP: 0.53","threshold: 0.52 <br> FP: 0.75 <br> TP: 0.60","threshold: 0.52 <br> FP: 0.78 <br> TP: 0.60","threshold: 0.52 <br> FP: 0.78 <br> TP: 0.63","threshold: 0.52 <br> FP: 0.80 <br> TP: 0.63","threshold: 0.52 <br> FP: 0.80 <br> TP: 0.72","threshold: 0.52 <br> FP: 0.85 <br> TP: 0.72","threshold: 0.52 <br> FP: 0.85 <br> TP: 0.73","threshold: 0.52 <br> FP: 0.88 <br> TP: 0.73","threshold: 0.52 <br> FP: 0.88 <br> TP: 0.75","threshold: 0.51 <br> FP: 0.90 <br> TP: 0.75","threshold: 0.51 <br> FP: 0.90 <br> TP: 0.77","threshold: 0.51 <br> FP: 0.93 <br> TP: 0.77","threshold: 0.51 <br> FP: 0.93 <br> TP: 0.78","threshold: 0.51 <br> FP: 0.95 <br> TP: 0.78","threshold: 0.51 <br> FP: 0.95 <br> TP: 0.82","threshold: 0.51 <br> FP: 0.97 <br> TP: 0.82","threshold: 0.51 <br> FP: 0.97 <br> TP: 0.93","threshold: 0.50 <br> FP: 1.00 <br> TP: 0.93","threshold: 0.50 <br> FP: 1.00 <br> TP: 1.00"],"x":[0.0,0.0,0.0,0.1,0.1,0.15,0.15,0.225,0.225,0.275,0.275,0.4,0.4,0.425,0.425,0.475,0.475,0.525,0.525,0.625,0.625,0.65,0.65,0.675,0.675,0.725,0.725,0.75,0.75,0.775,0.775,0.8,0.8,0.85,0.85,0.875,0.875,0.9,0.9,0.925,0.925,0.95,0.95,0.975,0.975,1.0,1.0],"y":[0.0,0.016666666666666666,0.08333333333333333,0.08333333333333333,0.13333333333333333,0.13333333333333333,0.15,0.15,0.2,0.2,0.25,0.25,0.3333333333333333,0.3333333333333333,0.38333333333333336,0.38333333333333336,0.4,0.4,0.4166666666666667,0.4166666666666667,0.43333333333333335,0.43333333333333335,0.4666666666666667,0.4666666666666667,0.5166666666666667,0.5166666666666667,0.5333333333333333,0.5333333333333333,0.6,0.6,0.6333333333333333,0.6333333333333333,0.7166666666666667,0.7166666666666667,0.7333333333333333,0.7333333333333333,0.75,0.75,0.7666666666666667,0.7666666666666667,0.7833333333333333,0.7833333333333333,0.8166666666666667,0.8166666666666667,0.9333333333333333,0.9333333333333333,1.0],"type":"scatter"}],                        {"hovermode":"closest","plot_bgcolor":"#fff","title":{"text":"ROC AUC CURVE"},"xaxis":{"constrain":"domain","range":[0,1],"title":{"text":"False Positive Rate"}},"yaxis":{"constrain":"domain","range":[0,1],"scaleanchor":"x","scaleratio":1,"title":{"text":"True Positive Rate"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"align":"right","showarrow":false,"text":"roc-auc-score: 0.40","x":0.6,"xanchor":"left","y":0.4,"yanchor":"top"},{"align":"right","showarrow":false,"text":"cutoff: 0.50","x":0.6,"xanchor":"left","y":0.35,"yanchor":"top"},{"align":"right","showarrow":false,"text":"TPR: 1.00","x":0.6,"xanchor":"left","y":0.3,"yanchor":"top"},{"align":"right","showarrow":false,"text":"FPR: 1.00","x":0.6,"xanchor":"left","y":0.24,"yanchor":"top"}],"shapes":[{"line":{"color":"darkslategray","dash":"dot","width":4},"type":"line","x0":0,"x1":1,"xref":"x","y0":0,"y1":1,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0,"x1":1,"xref":"x","y0":1.0,"y1":1.0,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":1.0,"x1":1.0,"xref":"x","y0":0,"y1":1,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">PR AUC Plot</h3><h6 class="card-subtitle">Trade-off between Precision and Recall</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="71955c65-3f2e-4cfe-965a-64d2b39f110a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("71955c65-3f2e-4cfe-965a-64d2b39f110a")) {                    Plotly.newPlot(                        "71955c65-3f2e-4cfe-965a-64d2b39f110a",                        [{"hoverinfo":"text","mode":"lines","name":"PR AUC CURVE","text":["threshold: 0.50 <br>precision: 0.60 <br>recall: 1.00","threshold: 0.50 <br>precision: 0.60 <br>recall: 0.98","threshold: 0.50 <br>precision: 0.59 <br>recall: 0.97","threshold: 0.50 <br>precision: 0.59 <br>recall: 0.95","threshold: 0.50 <br>precision: 0.58 <br>recall: 0.93","threshold: 0.51 <br>precision: 0.59 <br>recall: 0.93","threshold: 0.51 <br>precision: 0.59 <br>recall: 0.92","threshold: 0.51 <br>precision: 0.58 <br>recall: 0.90","threshold: 0.51 <br>precision: 0.58 <br>recall: 0.88","threshold: 0.51 <br>precision: 0.57 <br>recall: 0.87","threshold: 0.51 <br>precision: 0.57 <br>recall: 0.85","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.83","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.82","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.82","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.80","threshold: 0.51 <br>precision: 0.55 <br>recall: 0.78","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.78","threshold: 0.51 <br>precision: 0.55 <br>recall: 0.77","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.77","threshold: 0.51 <br>precision: 0.56 <br>recall: 0.75","threshold: 0.52 <br>precision: 0.56 <br>recall: 0.75","threshold: 0.52 <br>precision: 0.56 <br>recall: 0.73","threshold: 0.52 <br>precision: 0.56 <br>recall: 0.73","threshold: 0.52 <br>precision: 0.56 <br>recall: 0.72","threshold: 0.52 <br>precision: 0.57 <br>recall: 0.72","threshold: 0.52 <br>precision: 0.57 <br>recall: 0.72","threshold: 0.52 <br>precision: 0.57 <br>recall: 0.70","threshold: 0.52 <br>precision: 0.56 <br>recall: 0.68","threshold: 0.52 <br>precision: 0.56 <br>recall: 0.67","threshold: 0.52 <br>precision: 0.55 <br>recall: 0.65","threshold: 0.52 <br>precision: 0.54 <br>recall: 0.63","threshold: 0.52 <br>precision: 0.55 <br>recall: 0.63","threshold: 0.52 <br>precision: 0.54 <br>recall: 0.62","threshold: 0.52 <br>precision: 0.54 <br>recall: 0.60","threshold: 0.52 <br>precision: 0.55 <br>recall: 0.60","threshold: 0.52 <br>precision: 0.54 <br>recall: 0.58","threshold: 0.52 <br>precision: 0.53 <br>recall: 0.57","threshold: 0.52 <br>precision: 0.52 <br>recall: 0.55","threshold: 0.52 <br>precision: 0.52 <br>recall: 0.53","threshold: 0.52 <br>precision: 0.52 <br>recall: 0.53","threshold: 0.52 <br>precision: 0.52 <br>recall: 0.52","threshold: 0.52 <br>precision: 0.53 <br>recall: 0.52","threshold: 0.52 <br>precision: 0.53 <br>recall: 0.52","threshold: 0.52 <br>precision: 0.53 <br>recall: 0.50","threshold: 0.52 <br>precision: 0.52 <br>recall: 0.48","threshold: 0.52 <br>precision: 0.51 <br>recall: 0.47","threshold: 0.53 <br>precision: 0.52 <br>recall: 0.47","threshold: 0.53 <br>precision: 0.51 <br>recall: 0.45","threshold: 0.53 <br>precision: 0.50 <br>recall: 0.43","threshold: 0.53 <br>precision: 0.51 <br>recall: 0.43","threshold: 0.53 <br>precision: 0.50 <br>recall: 0.42","threshold: 0.53 <br>precision: 0.51 <br>recall: 0.42","threshold: 0.53 <br>precision: 0.52 <br>recall: 0.42","threshold: 0.54 <br>precision: 0.53 <br>recall: 0.42","threshold: 0.54 <br>precision: 0.54 <br>recall: 0.42","threshold: 0.55 <br>precision: 0.53 <br>recall: 0.40","threshold: 0.55 <br>precision: 0.55 <br>recall: 0.40","threshold: 0.55 <br>precision: 0.56 <br>recall: 0.40","threshold: 0.55 <br>precision: 0.55 <br>recall: 0.38","threshold: 0.55 <br>precision: 0.56 <br>recall: 0.38","threshold: 0.55 <br>precision: 0.57 <br>recall: 0.38","threshold: 0.56 <br>precision: 0.56 <br>recall: 0.37","threshold: 0.56 <br>precision: 0.55 <br>recall: 0.35","threshold: 0.56 <br>precision: 0.54 <br>recall: 0.33","threshold: 0.57 <br>precision: 0.56 <br>recall: 0.33","threshold: 0.57 <br>precision: 0.54 <br>recall: 0.32","threshold: 0.57 <br>precision: 0.53 <br>recall: 0.30","threshold: 0.57 <br>precision: 0.52 <br>recall: 0.28","threshold: 0.57 <br>precision: 0.50 <br>recall: 0.27","threshold: 0.58 <br>precision: 0.48 <br>recall: 0.25","threshold: 0.58 <br>precision: 0.50 <br>recall: 0.25","threshold: 0.58 <br>precision: 0.52 <br>recall: 0.25","threshold: 0.58 <br>precision: 0.54 <br>recall: 0.25","threshold: 0.58 <br>precision: 0.56 <br>recall: 0.25","threshold: 0.58 <br>precision: 0.58 <br>recall: 0.25","threshold: 0.58 <br>precision: 0.56 <br>recall: 0.23","threshold: 0.58 <br>precision: 0.54 <br>recall: 0.22","threshold: 0.58 <br>precision: 0.52 <br>recall: 0.20","threshold: 0.58 <br>precision: 0.55 <br>recall: 0.20","threshold: 0.58 <br>precision: 0.57 <br>recall: 0.20","threshold: 0.59 <br>precision: 0.55 <br>recall: 0.18","threshold: 0.60 <br>precision: 0.53 <br>recall: 0.17","threshold: 0.60 <br>precision: 0.50 <br>recall: 0.15","threshold: 0.60 <br>precision: 0.53 <br>recall: 0.15","threshold: 0.60 <br>precision: 0.56 <br>recall: 0.15","threshold: 0.60 <br>precision: 0.60 <br>recall: 0.15","threshold: 0.60 <br>precision: 0.57 <br>recall: 0.13","threshold: 0.60 <br>precision: 0.62 <br>recall: 0.13","threshold: 0.60 <br>precision: 0.67 <br>recall: 0.13","threshold: 0.60 <br>precision: 0.64 <br>recall: 0.12","threshold: 0.60 <br>precision: 0.60 <br>recall: 0.10","threshold: 0.60 <br>precision: 0.56 <br>recall: 0.08","threshold: 0.60 <br>precision: 0.62 <br>recall: 0.08","threshold: 0.60 <br>precision: 0.71 <br>recall: 0.08","threshold: 0.60 <br>precision: 0.83 <br>recall: 0.08","threshold: 0.61 <br>precision: 1.00 <br>recall: 0.08","threshold: 0.61 <br>precision: 1.00 <br>recall: 0.07","threshold: 0.61 <br>precision: 1.00 <br>recall: 0.05","threshold: 0.61 <br>precision: 1.00 <br>recall: 0.03","threshold: 0.61 <br>precision: 1.00 <br>recall: 0.02"],"x":[0.6,0.5959595959595959,0.5918367346938775,0.5876288659793815,0.5833333333333334,0.5894736842105263,0.5851063829787234,0.5806451612903226,0.5760869565217391,0.5714285714285714,0.5666666666666667,0.5617977528089888,0.5568181818181818,0.5632183908045977,0.5581395348837209,0.5529411764705883,0.5595238095238095,0.5542168674698795,0.5609756097560976,0.5555555555555556,0.5625,0.5569620253164557,0.5641025641025641,0.5584415584415584,0.5657894736842105,0.5733333333333334,0.5675675675675675,0.5616438356164384,0.5555555555555556,0.5492957746478874,0.5428571428571428,0.5507246376811594,0.5441176470588235,0.5373134328358209,0.5454545454545454,0.5384615384615384,0.53125,0.5238095238095238,0.5161290322580645,0.5245901639344263,0.5166666666666667,0.5254237288135594,0.5344827586206896,0.5263157894736842,0.5178571428571429,0.509090909090909,0.5185185185185185,0.5094339622641509,0.5,0.5098039215686274,0.5,0.5102040816326531,0.5208333333333334,0.5319148936170213,0.5434782608695652,0.5333333333333333,0.5454545454545454,0.5581395348837209,0.5476190476190477,0.5609756097560976,0.575,0.5641025641025641,0.5526315789473685,0.5405405405405406,0.5555555555555556,0.5428571428571428,0.5294117647058824,0.5151515151515151,0.5,0.4838709677419355,0.5,0.5172413793103449,0.5357142857142857,0.5555555555555556,0.5769230769230769,0.56,0.5416666666666666,0.5217391304347826,0.5454545454545454,0.5714285714285714,0.55,0.5263157894736842,0.5,0.5294117647058824,0.5625,0.6,0.5714285714285714,0.6153846153846154,0.6666666666666666,0.6363636363636364,0.6,0.5555555555555556,0.625,0.7142857142857143,0.8333333333333334,1.0,1.0,1.0,1.0,1.0,1.0],"y":[1.0,0.9833333333333333,0.9666666666666667,0.95,0.9333333333333333,0.9333333333333333,0.9166666666666666,0.9,0.8833333333333333,0.8666666666666667,0.85,0.8333333333333334,0.8166666666666667,0.8166666666666667,0.8,0.7833333333333333,0.7833333333333333,0.7666666666666667,0.7666666666666667,0.75,0.75,0.7333333333333333,0.7333333333333333,0.7166666666666667,0.7166666666666667,0.7166666666666667,0.7,0.6833333333333333,0.6666666666666666,0.65,0.6333333333333333,0.6333333333333333,0.6166666666666667,0.6,0.6,0.5833333333333334,0.5666666666666667,0.55,0.5333333333333333,0.5333333333333333,0.5166666666666667,0.5166666666666667,0.5166666666666667,0.5,0.48333333333333334,0.4666666666666667,0.4666666666666667,0.45,0.43333333333333335,0.43333333333333335,0.4166666666666667,0.4166666666666667,0.4166666666666667,0.4166666666666667,0.4166666666666667,0.4,0.4,0.4,0.38333333333333336,0.38333333333333336,0.38333333333333336,0.36666666666666664,0.35,0.3333333333333333,0.3333333333333333,0.31666666666666665,0.3,0.2833333333333333,0.26666666666666666,0.25,0.25,0.25,0.25,0.25,0.25,0.23333333333333334,0.21666666666666667,0.2,0.2,0.2,0.18333333333333332,0.16666666666666666,0.15,0.15,0.15,0.15,0.13333333333333333,0.13333333333333333,0.13333333333333333,0.11666666666666667,0.1,0.08333333333333333,0.08333333333333333,0.08333333333333333,0.08333333333333333,0.08333333333333333,0.06666666666666667,0.05,0.03333333333333333,0.016666666666666666,0.0],"type":"scatter"}],                        {"hovermode":"closest","plot_bgcolor":"#fff","title":{"text":"PR AUC CURVE"},"xaxis":{"constrain":"domain","range":[0,1],"title":{"text":"Precision"}},"yaxis":{"constrain":"domain","range":[0,1],"scaleanchor":"x","scaleratio":1,"title":{"text":"Recall"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"align":"right","showarrow":false,"text":"pr-auc-score: 0.60","x":0.15,"xanchor":"left","y":0.4,"yanchor":"top"},{"align":"right","showarrow":false,"text":"cutoff: 0.50","x":0.15,"xanchor":"left","y":0.35,"yanchor":"top"},{"align":"right","showarrow":false,"text":"precision: 0.60","x":0.15,"xanchor":"left","y":0.3,"yanchor":"top"},{"align":"right","showarrow":false,"text":"recall: 1.00","x":0.15,"xanchor":"left","y":0.25,"yanchor":"top"}],"shapes":[{"line":{"color":"lightslategray","width":1},"type":"line","x0":0,"x1":1,"xref":"x","y0":1.0,"y1":1.0,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0.6,"x1":0.6,"xref":"x","y0":0,"y1":1,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Lift Curve</h3><h6 class="card-subtitle">Performance how much better than random?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="395cdf73-af24-4dd4-bbcd-8eb2b0c1b40e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("395cdf73-af24-4dd4-bbcd-8eb2b0c1b40e")) {                    Plotly.newPlot(                        "395cdf73-af24-4dd4-bbcd-8eb2b0c1b40e",                        [{"hoverinfo":"text","name":"perfect","text":["0%, 0%","60.00%, 100%","100, 100%"],"x":[0.0,60.000003814697266,100],"y":[0.0,100,100],"type":"scatter"},{"hoverinfo":"text","name":"model","text":["model selected 1.67% of all positives in first 1.00% sampled<br>precision=100.00% positives in sample<br>lift=1.67","model selected 3.33% of all positives in first 2.00% sampled<br>precision=100.00% positives in sample<br>lift=1.67","model selected 5.00% of all positives in first 3.00% sampled<br>precision=100.00% positives in sample<br>lift=1.67","model selected 6.67% of all positives in first 4.00% sampled<br>precision=100.00% positives in sample<br>lift=1.67","model selected 8.33% of all positives in first 5.00% sampled<br>precision=100.00% positives in sample<br>lift=1.67","model selected 8.33% of all positives in first 6.00% sampled<br>precision=83.33% positives in sample<br>lift=1.39","model selected 8.33% of all positives in first 7.00% sampled<br>precision=71.43% positives in sample<br>lift=1.19","model selected 8.33% of all positives in first 8.00% sampled<br>precision=62.50% positives in sample<br>lift=1.04","model selected 8.33% of all positives in first 9.00% sampled<br>precision=55.56% positives in sample<br>lift=0.93","model selected 10.00% of all positives in first 10.00% sampled<br>precision=60.00% positives in sample<br>lift=1.00","model selected 11.67% of all positives in first 11.00% sampled<br>precision=63.64% positives in sample<br>lift=1.06","model selected 13.33% of all positives in first 12.00% sampled<br>precision=66.67% positives in sample<br>lift=1.11","model selected 13.33% of all positives in first 13.00% sampled<br>precision=61.54% positives in sample<br>lift=1.03","model selected 13.33% of all positives in first 14.00% sampled<br>precision=57.14% positives in sample<br>lift=0.95","model selected 15.00% of all positives in first 15.00% sampled<br>precision=60.00% positives in sample<br>lift=1.00","model selected 15.00% of all positives in first 16.00% sampled<br>precision=56.25% positives in sample<br>lift=0.94","model selected 15.00% of all positives in first 17.00% sampled<br>precision=52.94% positives in sample<br>lift=0.88","model selected 15.00% of all positives in first 18.00% sampled<br>precision=50.00% positives in sample<br>lift=0.83","model selected 16.67% of all positives in first 19.00% sampled<br>precision=52.63% positives in sample<br>lift=0.88","model selected 18.33% of all positives in first 20.00% sampled<br>precision=55.00% positives in sample<br>lift=0.92","model selected 20.00% of all positives in first 21.00% sampled<br>precision=57.14% positives in sample<br>lift=0.95","model selected 20.00% of all positives in first 22.00% sampled<br>precision=54.55% positives in sample<br>lift=0.91","model selected 20.00% of all positives in first 23.00% sampled<br>precision=52.17% positives in sample<br>lift=0.87","model selected 21.67% of all positives in first 24.00% sampled<br>precision=54.17% positives in sample<br>lift=0.90","model selected 23.33% of all positives in first 25.00% sampled<br>precision=56.00% positives in sample<br>lift=0.93","model selected 25.00% of all positives in first 26.00% sampled<br>precision=57.69% positives in sample<br>lift=0.96","model selected 25.00% of all positives in first 27.00% sampled<br>precision=55.56% positives in sample<br>lift=0.93","model selected 25.00% of all positives in first 28.00% sampled<br>precision=53.57% positives in sample<br>lift=0.89","model selected 25.00% of all positives in first 29.00% sampled<br>precision=51.72% positives in sample<br>lift=0.86","model selected 25.00% of all positives in first 30.00% sampled<br>precision=50.00% positives in sample<br>lift=0.83","model selected 25.00% of all positives in first 31.00% sampled<br>precision=48.39% positives in sample<br>lift=0.81","model selected 26.67% of all positives in first 32.00% sampled<br>precision=50.00% positives in sample<br>lift=0.83","model selected 28.33% of all positives in first 33.00% sampled<br>precision=51.52% positives in sample<br>lift=0.86","model selected 30.00% of all positives in first 34.00% sampled<br>precision=52.94% positives in sample<br>lift=0.88","model selected 31.67% of all positives in first 35.00% sampled<br>precision=54.29% positives in sample<br>lift=0.90","model selected 33.33% of all positives in first 36.00% sampled<br>precision=55.56% positives in sample<br>lift=0.93","model selected 33.33% of all positives in first 37.00% sampled<br>precision=54.05% positives in sample<br>lift=0.90","model selected 35.00% of all positives in first 38.00% sampled<br>precision=55.26% positives in sample<br>lift=0.92","model selected 36.67% of all positives in first 39.00% sampled<br>precision=56.41% positives in sample<br>lift=0.94","model selected 38.33% of all positives in first 40.00% sampled<br>precision=57.50% positives in sample<br>lift=0.96","model selected 38.33% of all positives in first 41.00% sampled<br>precision=56.10% positives in sample<br>lift=0.93","model selected 38.33% of all positives in first 42.00% sampled<br>precision=54.76% positives in sample<br>lift=0.91","model selected 40.00% of all positives in first 43.00% sampled<br>precision=55.81% positives in sample<br>lift=0.93","model selected 40.00% of all positives in first 44.00% sampled<br>precision=54.55% positives in sample<br>lift=0.91","model selected 40.00% of all positives in first 45.00% sampled<br>precision=53.33% positives in sample<br>lift=0.89","model selected 41.67% of all positives in first 46.00% sampled<br>precision=54.35% positives in sample<br>lift=0.91","model selected 41.67% of all positives in first 47.00% sampled<br>precision=53.19% positives in sample<br>lift=0.89","model selected 41.67% of all positives in first 48.00% sampled<br>precision=52.08% positives in sample<br>lift=0.87","model selected 41.67% of all positives in first 49.00% sampled<br>precision=51.02% positives in sample<br>lift=0.85","model selected 41.67% of all positives in first 50.00% sampled<br>precision=50.00% positives in sample<br>lift=0.83","model selected 43.33% of all positives in first 51.00% sampled<br>precision=50.98% positives in sample<br>lift=0.85","model selected 43.33% of all positives in first 52.00% sampled<br>precision=50.00% positives in sample<br>lift=0.83","model selected 45.00% of all positives in first 53.00% sampled<br>precision=50.94% positives in sample<br>lift=0.85","model selected 46.67% of all positives in first 54.00% sampled<br>precision=51.85% positives in sample<br>lift=0.86","model selected 46.67% of all positives in first 55.00% sampled<br>precision=50.91% positives in sample<br>lift=0.85","model selected 48.33% of all positives in first 56.00% sampled<br>precision=51.79% positives in sample<br>lift=0.86","model selected 50.00% of all positives in first 57.00% sampled<br>precision=52.63% positives in sample<br>lift=0.88","model selected 51.67% of all positives in first 58.00% sampled<br>precision=53.45% positives in sample<br>lift=0.89","model selected 51.67% of all positives in first 59.00% sampled<br>precision=52.54% positives in sample<br>lift=0.88","model selected 51.67% of all positives in first 60.00% sampled<br>precision=51.67% positives in sample<br>lift=0.86","model selected 53.33% of all positives in first 61.00% sampled<br>precision=52.46% positives in sample<br>lift=0.87","model selected 53.33% of all positives in first 62.00% sampled<br>precision=51.61% positives in sample<br>lift=0.86","model selected 55.00% of all positives in first 63.00% sampled<br>precision=52.38% positives in sample<br>lift=0.87","model selected 56.67% of all positives in first 64.00% sampled<br>precision=53.12% positives in sample<br>lift=0.89","model selected 58.33% of all positives in first 65.00% sampled<br>precision=53.85% positives in sample<br>lift=0.90","model selected 60.00% of all positives in first 66.00% sampled<br>precision=54.55% positives in sample<br>lift=0.91","model selected 60.00% of all positives in first 67.00% sampled<br>precision=53.73% positives in sample<br>lift=0.90","model selected 61.67% of all positives in first 68.00% sampled<br>precision=54.41% positives in sample<br>lift=0.91","model selected 63.33% of all positives in first 69.00% sampled<br>precision=55.07% positives in sample<br>lift=0.92","model selected 63.33% of all positives in first 70.00% sampled<br>precision=54.29% positives in sample<br>lift=0.90","model selected 65.00% of all positives in first 71.00% sampled<br>precision=54.93% positives in sample<br>lift=0.92","model selected 66.67% of all positives in first 72.00% sampled<br>precision=55.56% positives in sample<br>lift=0.93","model selected 68.33% of all positives in first 73.00% sampled<br>precision=56.16% positives in sample<br>lift=0.94","model selected 70.00% of all positives in first 74.00% sampled<br>precision=56.76% positives in sample<br>lift=0.95","model selected 71.67% of all positives in first 75.00% sampled<br>precision=57.33% positives in sample<br>lift=0.96","model selected 71.67% of all positives in first 76.00% sampled<br>precision=56.58% positives in sample<br>lift=0.94","model selected 71.67% of all positives in first 77.00% sampled<br>precision=55.84% positives in sample<br>lift=0.93","model selected 73.33% of all positives in first 78.00% sampled<br>precision=56.41% positives in sample<br>lift=0.94","model selected 73.33% of all positives in first 79.00% sampled<br>precision=55.70% positives in sample<br>lift=0.93","model selected 75.00% of all positives in first 80.00% sampled<br>precision=56.25% positives in sample<br>lift=0.94","model selected 75.00% of all positives in first 81.00% sampled<br>precision=55.56% positives in sample<br>lift=0.93","model selected 76.67% of all positives in first 82.00% sampled<br>precision=56.10% positives in sample<br>lift=0.93","model selected 76.67% of all positives in first 83.00% sampled<br>precision=55.42% positives in sample<br>lift=0.92","model selected 78.33% of all positives in first 84.00% sampled<br>precision=55.95% positives in sample<br>lift=0.93","model selected 78.33% of all positives in first 85.00% sampled<br>precision=55.29% positives in sample<br>lift=0.92","model selected 80.00% of all positives in first 86.00% sampled<br>precision=55.81% positives in sample<br>lift=0.93","model selected 81.67% of all positives in first 87.00% sampled<br>precision=56.32% positives in sample<br>lift=0.94","model selected 81.67% of all positives in first 88.00% sampled<br>precision=55.68% positives in sample<br>lift=0.93","model selected 83.33% of all positives in first 89.00% sampled<br>precision=56.18% positives in sample<br>lift=0.94","model selected 85.00% of all positives in first 90.00% sampled<br>precision=56.67% positives in sample<br>lift=0.94","model selected 86.67% of all positives in first 91.00% sampled<br>precision=57.14% positives in sample<br>lift=0.95","model selected 88.33% of all positives in first 92.00% sampled<br>precision=57.61% positives in sample<br>lift=0.96","model selected 90.00% of all positives in first 93.00% sampled<br>precision=58.06% positives in sample<br>lift=0.97","model selected 91.67% of all positives in first 94.00% sampled<br>precision=58.51% positives in sample<br>lift=0.98","model selected 93.33% of all positives in first 95.00% sampled<br>precision=58.95% positives in sample<br>lift=0.98","model selected 93.33% of all positives in first 96.00% sampled<br>precision=58.33% positives in sample<br>lift=0.97","model selected 95.00% of all positives in first 97.00% sampled<br>precision=58.76% positives in sample<br>lift=0.98","model selected 96.67% of all positives in first 98.00% sampled<br>precision=59.18% positives in sample<br>lift=0.99","model selected 98.33% of all positives in first 99.00% sampled<br>precision=59.60% positives in sample<br>lift=0.99","model selected 100.00% of all positives in first 100.00% sampled<br>precision=60.00% positives in sample<br>lift=1.00"],"x":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0],"y":[1.67,3.33,5.0,6.67,8.33,8.33,8.33,8.33,8.33,10.0,11.67,13.33,13.33,13.33,15.0,15.0,15.0,15.0,16.67,18.33,20.0,20.0,20.0,21.67,23.33,25.0,25.0,25.0,25.0,25.0,25.0,26.67,28.33,30.0,31.67,33.33,33.33,35.0,36.67,38.33,38.33,38.33,40.0,40.0,40.0,41.67,41.67,41.67,41.67,41.67,43.33,43.33,45.0,46.67,46.67,48.33,50.0,51.67,51.67,51.67,53.33,53.33,55.0,56.67,58.33,60.0,60.0,61.67,63.33,63.33,65.0,66.67,68.33,70.0,71.67,71.67,71.67,73.33,73.33,75.0,75.0,76.67,76.67,78.33,78.33,80.0,81.67,81.67,83.33,85.0,86.67,88.33,90.0,91.67,93.33,93.33,95.0,96.67,98.33,100.0],"type":"scatter"},{"hoverinfo":"text","name":"random","text":["random selected 1.00% of all positives in first 1.00% sampled<br>precision=60.00% positives in sample","random selected 2.00% of all positives in first 2.00% sampled<br>precision=60.00% positives in sample","random selected 3.00% of all positives in first 3.00% sampled<br>precision=60.00% positives in sample","random selected 4.00% of all positives in first 4.00% sampled<br>precision=60.00% positives in sample","random selected 5.00% of all positives in first 5.00% sampled<br>precision=60.00% positives in sample","random selected 6.00% of all positives in first 6.00% sampled<br>precision=60.00% positives in sample","random selected 7.00% of all positives in first 7.00% sampled<br>precision=60.00% positives in sample","random selected 8.00% of all positives in first 8.00% sampled<br>precision=60.00% positives in sample","random selected 9.00% of all positives in first 9.00% sampled<br>precision=60.00% positives in sample","random selected 10.00% of all positives in first 10.00% sampled<br>precision=60.00% positives in sample","random selected 11.00% of all positives in first 11.00% sampled<br>precision=60.00% positives in sample","random selected 12.00% of all positives in first 12.00% sampled<br>precision=60.00% positives in sample","random selected 13.00% of all positives in first 13.00% sampled<br>precision=60.00% positives in sample","random selected 14.00% of all positives in first 14.00% sampled<br>precision=60.00% positives in sample","random selected 15.00% of all positives in first 15.00% sampled<br>precision=60.00% positives in sample","random selected 16.00% of all positives in first 16.00% sampled<br>precision=60.00% positives in sample","random selected 17.00% of all positives in first 17.00% sampled<br>precision=60.00% positives in sample","random selected 18.00% of all positives in first 18.00% sampled<br>precision=60.00% positives in sample","random selected 19.00% of all positives in first 19.00% sampled<br>precision=60.00% positives in sample","random selected 20.00% of all positives in first 20.00% sampled<br>precision=60.00% positives in sample","random selected 21.00% of all positives in first 21.00% sampled<br>precision=60.00% positives in sample","random selected 22.00% of all positives in first 22.00% sampled<br>precision=60.00% positives in sample","random selected 23.00% of all positives in first 23.00% sampled<br>precision=60.00% positives in sample","random selected 24.00% of all positives in first 24.00% sampled<br>precision=60.00% positives in sample","random selected 25.00% of all positives in first 25.00% sampled<br>precision=60.00% positives in sample","random selected 26.00% of all positives in first 26.00% sampled<br>precision=60.00% positives in sample","random selected 27.00% of all positives in first 27.00% sampled<br>precision=60.00% positives in sample","random selected 28.00% of all positives in first 28.00% sampled<br>precision=60.00% positives in sample","random selected 29.00% of all positives in first 29.00% sampled<br>precision=60.00% positives in sample","random selected 30.00% of all positives in first 30.00% sampled<br>precision=60.00% positives in sample","random selected 31.00% of all positives in first 31.00% sampled<br>precision=60.00% positives in sample","random selected 32.00% of all positives in first 32.00% sampled<br>precision=60.00% positives in sample","random selected 33.00% of all positives in first 33.00% sampled<br>precision=60.00% positives in sample","random selected 34.00% of all positives in first 34.00% sampled<br>precision=60.00% positives in sample","random selected 35.00% of all positives in first 35.00% sampled<br>precision=60.00% positives in sample","random selected 36.00% of all positives in first 36.00% sampled<br>precision=60.00% positives in sample","random selected 37.00% of all positives in first 37.00% sampled<br>precision=60.00% positives in sample","random selected 38.00% of all positives in first 38.00% sampled<br>precision=60.00% positives in sample","random selected 39.00% of all positives in first 39.00% sampled<br>precision=60.00% positives in sample","random selected 40.00% of all positives in first 40.00% sampled<br>precision=60.00% positives in sample","random selected 41.00% of all positives in first 41.00% sampled<br>precision=60.00% positives in sample","random selected 42.00% of all positives in first 42.00% sampled<br>precision=60.00% positives in sample","random selected 43.00% of all positives in first 43.00% sampled<br>precision=60.00% positives in sample","random selected 44.00% of all positives in first 44.00% sampled<br>precision=60.00% positives in sample","random selected 45.00% of all positives in first 45.00% sampled<br>precision=60.00% positives in sample","random selected 46.00% of all positives in first 46.00% sampled<br>precision=60.00% positives in sample","random selected 47.00% of all positives in first 47.00% sampled<br>precision=60.00% positives in sample","random selected 48.00% of all positives in first 48.00% sampled<br>precision=60.00% positives in sample","random selected 49.00% of all positives in first 49.00% sampled<br>precision=60.00% positives in sample","random selected 50.00% of all positives in first 50.00% sampled<br>precision=60.00% positives in sample","random selected 51.00% of all positives in first 51.00% sampled<br>precision=60.00% positives in sample","random selected 52.00% of all positives in first 52.00% sampled<br>precision=60.00% positives in sample","random selected 53.00% of all positives in first 53.00% sampled<br>precision=60.00% positives in sample","random selected 54.00% of all positives in first 54.00% sampled<br>precision=60.00% positives in sample","random selected 55.00% of all positives in first 55.00% sampled<br>precision=60.00% positives in sample","random selected 56.00% of all positives in first 56.00% sampled<br>precision=60.00% positives in sample","random selected 57.00% of all positives in first 57.00% sampled<br>precision=60.00% positives in sample","random selected 58.00% of all positives in first 58.00% sampled<br>precision=60.00% positives in sample","random selected 59.00% of all positives in first 59.00% sampled<br>precision=60.00% positives in sample","random selected 60.00% of all positives in first 60.00% sampled<br>precision=60.00% positives in sample","random selected 61.00% of all positives in first 61.00% sampled<br>precision=60.00% positives in sample","random selected 62.00% of all positives in first 62.00% sampled<br>precision=60.00% positives in sample","random selected 63.00% of all positives in first 63.00% sampled<br>precision=60.00% positives in sample","random selected 64.00% of all positives in first 64.00% sampled<br>precision=60.00% positives in sample","random selected 65.00% of all positives in first 65.00% sampled<br>precision=60.00% positives in sample","random selected 66.00% of all positives in first 66.00% sampled<br>precision=60.00% positives in sample","random selected 67.00% of all positives in first 67.00% sampled<br>precision=60.00% positives in sample","random selected 68.00% of all positives in first 68.00% sampled<br>precision=60.00% positives in sample","random selected 69.00% of all positives in first 69.00% sampled<br>precision=60.00% positives in sample","random selected 70.00% of all positives in first 70.00% sampled<br>precision=60.00% positives in sample","random selected 71.00% of all positives in first 71.00% sampled<br>precision=60.00% positives in sample","random selected 72.00% of all positives in first 72.00% sampled<br>precision=60.00% positives in sample","random selected 73.00% of all positives in first 73.00% sampled<br>precision=60.00% positives in sample","random selected 74.00% of all positives in first 74.00% sampled<br>precision=60.00% positives in sample","random selected 75.00% of all positives in first 75.00% sampled<br>precision=60.00% positives in sample","random selected 76.00% of all positives in first 76.00% sampled<br>precision=60.00% positives in sample","random selected 77.00% of all positives in first 77.00% sampled<br>precision=60.00% positives in sample","random selected 78.00% of all positives in first 78.00% sampled<br>precision=60.00% positives in sample","random selected 79.00% of all positives in first 79.00% sampled<br>precision=60.00% positives in sample","random selected 80.00% of all positives in first 80.00% sampled<br>precision=60.00% positives in sample","random selected 81.00% of all positives in first 81.00% sampled<br>precision=60.00% positives in sample","random selected 82.00% of all positives in first 82.00% sampled<br>precision=60.00% positives in sample","random selected 83.00% of all positives in first 83.00% sampled<br>precision=60.00% positives in sample","random selected 84.00% of all positives in first 84.00% sampled<br>precision=60.00% positives in sample","random selected 85.00% of all positives in first 85.00% sampled<br>precision=60.00% positives in sample","random selected 86.00% of all positives in first 86.00% sampled<br>precision=60.00% positives in sample","random selected 87.00% of all positives in first 87.00% sampled<br>precision=60.00% positives in sample","random selected 88.00% of all positives in first 88.00% sampled<br>precision=60.00% positives in sample","random selected 89.00% of all positives in first 89.00% sampled<br>precision=60.00% positives in sample","random selected 90.00% of all positives in first 90.00% sampled<br>precision=60.00% positives in sample","random selected 91.00% of all positives in first 91.00% sampled<br>precision=60.00% positives in sample","random selected 92.00% of all positives in first 92.00% sampled<br>precision=60.00% positives in sample","random selected 93.00% of all positives in first 93.00% sampled<br>precision=60.00% positives in sample","random selected 94.00% of all positives in first 94.00% sampled<br>precision=60.00% positives in sample","random selected 95.00% of all positives in first 95.00% sampled<br>precision=60.00% positives in sample","random selected 96.00% of all positives in first 96.00% sampled<br>precision=60.00% positives in sample","random selected 97.00% of all positives in first 97.00% sampled<br>precision=60.00% positives in sample","random selected 98.00% of all positives in first 98.00% sampled<br>precision=60.00% positives in sample","random selected 99.00% of all positives in first 99.00% sampled<br>precision=60.00% positives in sample","random selected 100.00% of all positives in first 100.00% sampled<br>precision=60.00% positives in sample"],"x":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0],"y":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0],"type":"scatter"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"font":{"size":18},"text":"Lift curve","x":0.5},"xaxis":{"title":{"text":"Percentage sampled"},"spikemode":"across","range":[0,100]},"yaxis":{"title":{"text":"Percentage of positive"}},"hovermode":"x","plot_bgcolor":"#fff","legend":{"xanchor":"center","y":0.9,"x":0.1},"shapes":[{"type":"line","x0":100.0,"x1":100.0,"xref":"x","y0":0,"y1":100.0,"yref":"y"}],"annotations":[{"text":"cutoff=0.50","x":100.0,"y":5,"yref":"y"},{"align":"right","showarrow":false,"text":"Model: 60 out 100 (60.00%)","x":0.5,"xanchor":"left","xref":"paper","y":0.4,"yanchor":"top","yref":"paper"},{"align":"right","showarrow":false,"text":"Random: 60 out 100 (60.00%)","x":0.5,"xanchor":"left","xref":"paper","y":0.33,"yanchor":"top","yref":"paper"},{"align":"right","showarrow":false,"text":"Lift: 1.0","x":0.5,"xanchor":"left","xref":"paper","y":0.26,"yanchor":"top","yref":"paper"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Cumulative Precision</h3><h6 class="card-subtitle">Expected distribution for highest scores</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="b9f3a048-93ba-46e8-8638-5ca907b5c98f" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b9f3a048-93ba-46e8-8638-5ca907b5c98f")) {                    Plotly.newPlot(                        "b9f3a048-93ba-46e8-8638-5ca907b5c98f",                        [{"hoverinfo":"text","showlegend":false,"text":["percentage sampled = top 1.00%","percentage sampled = top 2.00%","percentage sampled = top 3.00%","percentage sampled = top 4.00%","percentage sampled = top 5.00%","percentage sampled = top 6.00%","percentage sampled = top 7.00%","percentage sampled = top 8.00%","percentage sampled = top 9.00%","percentage sampled = top 10.00%","percentage sampled = top 11.00%","percentage sampled = top 12.00%","percentage sampled = top 13.00%","percentage sampled = top 14.00%","percentage sampled = top 15.00%","percentage sampled = top 16.00%","percentage sampled = top 17.00%","percentage sampled = top 18.00%","percentage sampled = top 19.00%","percentage sampled = top 20.00%","percentage sampled = top 21.00%","percentage sampled = top 22.00%","percentage sampled = top 23.00%","percentage sampled = top 24.00%","percentage sampled = top 25.00%","percentage sampled = top 26.00%","percentage sampled = top 27.00%","percentage sampled = top 28.00%","percentage sampled = top 29.00%","percentage sampled = top 30.00%","percentage sampled = top 31.00%","percentage sampled = top 32.00%","percentage sampled = top 33.00%","percentage sampled = top 34.00%","percentage sampled = top 35.00%","percentage sampled = top 36.00%","percentage sampled = top 37.00%","percentage sampled = top 38.00%","percentage sampled = top 39.00%","percentage sampled = top 40.00%","percentage sampled = top 41.00%","percentage sampled = top 42.00%","percentage sampled = top 43.00%","percentage sampled = top 44.00%","percentage sampled = top 45.00%","percentage sampled = top 46.00%","percentage sampled = top 47.00%","percentage sampled = top 48.00%","percentage sampled = top 49.00%","percentage sampled = top 50.00%","percentage sampled = top 51.00%","percentage sampled = top 52.00%","percentage sampled = top 53.00%","percentage sampled = top 54.00%","percentage sampled = top 55.00%","percentage sampled = top 56.00%","percentage sampled = top 57.00%","percentage sampled = top 58.00%","percentage sampled = top 59.00%","percentage sampled = top 60.00%","percentage sampled = top 61.00%","percentage sampled = top 62.00%","percentage sampled = top 63.00%","percentage sampled = top 64.00%","percentage sampled = top 65.00%","percentage sampled = top 66.00%","percentage sampled = top 67.00%","percentage sampled = top 68.00%","percentage sampled = top 69.00%","percentage sampled = top 70.00%","percentage sampled = top 71.00%","percentage sampled = top 72.00%","percentage sampled = top 73.00%","percentage sampled = top 74.00%","percentage sampled = top 75.00%","percentage sampled = top 76.00%","percentage sampled = top 77.00%","percentage sampled = top 78.00%","percentage sampled = top 79.00%","percentage sampled = top 80.00%","percentage sampled = top 81.00%","percentage sampled = top 82.00%","percentage sampled = top 83.00%","percentage sampled = top 84.00%","percentage sampled = top 85.00%","percentage sampled = top 86.00%","percentage sampled = top 87.00%","percentage sampled = top 88.00%","percentage sampled = top 89.00%","percentage sampled = top 90.00%","percentage sampled = top 91.00%","percentage sampled = top 92.00%","percentage sampled = top 93.00%","percentage sampled = top 94.00%","percentage sampled = top 95.00%","percentage sampled = top 96.00%","percentage sampled = top 97.00%","percentage sampled = top 98.00%","percentage sampled = top 99.00%","percentage sampled = top 100.00%"],"x":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0],"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"type":"scatter"},{"fill":"tozeroy","hoverinfo":"text","name":"True","text":["percentage True=100.00%","percentage True=100.00%","percentage True=100.00%","percentage True=100.00%","percentage True=100.00%","percentage True=83.33%","percentage True=71.43%","percentage True=62.50%","percentage True=55.56%","percentage True=60.00%","percentage True=63.64%","percentage True=66.67%","percentage True=61.54%","percentage True=57.14%","percentage True=60.00%","percentage True=56.25%","percentage True=52.94%","percentage True=50.00%","percentage True=52.63%","percentage True=55.00%","percentage True=57.14%","percentage True=54.55%","percentage True=52.17%","percentage True=54.17%","percentage True=56.00%","percentage True=57.69%","percentage True=55.56%","percentage True=53.57%","percentage True=51.72%","percentage True=50.00%","percentage True=48.39%","percentage True=50.00%","percentage True=51.52%","percentage True=52.94%","percentage True=54.29%","percentage True=55.56%","percentage True=54.05%","percentage True=55.26%","percentage True=56.41%","percentage True=57.50%","percentage True=56.10%","percentage True=54.76%","percentage True=55.81%","percentage True=54.55%","percentage True=53.33%","percentage True=54.35%","percentage True=53.19%","percentage True=52.08%","percentage True=51.02%","percentage True=50.00%","percentage True=50.98%","percentage True=50.00%","percentage True=50.94%","percentage True=51.85%","percentage True=50.91%","percentage True=51.79%","percentage True=52.63%","percentage True=53.45%","percentage True=52.54%","percentage True=51.67%","percentage True=52.46%","percentage True=51.61%","percentage True=52.38%","percentage True=53.12%","percentage True=53.85%","percentage True=54.55%","percentage True=53.73%","percentage True=54.41%","percentage True=55.07%","percentage True=54.29%","percentage True=54.93%","percentage True=55.56%","percentage True=56.16%","percentage True=56.76%","percentage True=57.33%","percentage True=56.58%","percentage True=55.84%","percentage True=56.41%","percentage True=55.70%","percentage True=56.25%","percentage True=55.56%","percentage True=56.10%","percentage True=55.42%","percentage True=55.95%","percentage True=55.29%","percentage True=55.81%","percentage True=56.32%","percentage True=55.68%","percentage True=56.18%","percentage True=56.67%","percentage True=57.14%","percentage True=57.61%","percentage True=58.06%","percentage True=58.51%","percentage True=58.95%","percentage True=58.33%","percentage True=58.76%","percentage True=59.18%","percentage True=59.60%","percentage True=60.00%"],"x":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0],"y":[100.0,100.0,100.0,100.0,100.0,83.33333333333333,71.42857142857143,62.5,55.55555555555556,60.0,63.63636363636363,66.66666666666667,61.53846153846154,57.142857142857146,60.0,56.25,52.94117647058823,50.0,52.63157894736842,55.0,57.142857142857146,54.54545454545455,52.17391304347826,54.166666666666664,56.0,57.69230769230769,55.55555555555556,53.57142857142857,51.724137931034484,50.0,48.38709677419355,50.0,51.515151515151516,52.94117647058823,54.285714285714285,55.55555555555556,54.054054054054056,55.26315789473684,56.41025641025641,57.5,56.09756097560975,54.76190476190476,55.81395348837209,54.54545454545455,53.333333333333336,54.34782608695652,53.191489361702125,52.083333333333336,51.02040816326531,50.0,50.98039215686274,50.0,50.943396226415096,51.851851851851855,50.90909090909091,51.785714285714285,52.63157894736842,53.44827586206897,52.54237288135593,51.666666666666664,52.459016393442624,51.61290322580645,52.38095238095238,53.125,53.84615384615385,54.54545454545455,53.73134328358209,54.411764705882355,55.072463768115945,54.285714285714285,54.929577464788736,55.55555555555556,56.16438356164384,56.75675675675676,57.333333333333336,56.578947368421055,55.84415584415584,56.41025641025641,55.69620253164557,56.25,55.55555555555556,56.09756097560975,55.42168674698795,55.95238095238095,55.294117647058826,55.81395348837209,56.32183908045977,55.68181818181818,56.17977528089887,56.666666666666664,57.142857142857146,57.608695652173914,58.064516129032256,58.51063829787234,58.94736842105263,58.333333333333336,58.76288659793814,59.183673469387756,59.5959595959596,60.0],"type":"scatter"},{"fill":"tonexty","hoverinfo":"text","name":"Fake","text":["percentage Fake=0.00%","percentage Fake=0.00%","percentage Fake=0.00%","percentage Fake=0.00%","percentage Fake=0.00%","percentage Fake=16.67%","percentage Fake=28.57%","percentage Fake=37.50%","percentage Fake=44.44%","percentage Fake=40.00%","percentage Fake=36.36%","percentage Fake=33.33%","percentage Fake=38.46%","percentage Fake=42.86%","percentage Fake=40.00%","percentage Fake=43.75%","percentage Fake=47.06%","percentage Fake=50.00%","percentage Fake=47.37%","percentage Fake=45.00%","percentage Fake=42.86%","percentage Fake=45.45%","percentage Fake=47.83%","percentage Fake=45.83%","percentage Fake=44.00%","percentage Fake=42.31%","percentage Fake=44.44%","percentage Fake=46.43%","percentage Fake=48.28%","percentage Fake=50.00%","percentage Fake=51.61%","percentage Fake=50.00%","percentage Fake=48.48%","percentage Fake=47.06%","percentage Fake=45.71%","percentage Fake=44.44%","percentage Fake=45.95%","percentage Fake=44.74%","percentage Fake=43.59%","percentage Fake=42.50%","percentage Fake=43.90%","percentage Fake=45.24%","percentage Fake=44.19%","percentage Fake=45.45%","percentage Fake=46.67%","percentage Fake=45.65%","percentage Fake=46.81%","percentage Fake=47.92%","percentage Fake=48.98%","percentage Fake=50.00%","percentage Fake=49.02%","percentage Fake=50.00%","percentage Fake=49.06%","percentage Fake=48.15%","percentage Fake=49.09%","percentage Fake=48.21%","percentage Fake=47.37%","percentage Fake=46.55%","percentage Fake=47.46%","percentage Fake=48.33%","percentage Fake=47.54%","percentage Fake=48.39%","percentage Fake=47.62%","percentage Fake=46.88%","percentage Fake=46.15%","percentage Fake=45.45%","percentage Fake=46.27%","percentage Fake=45.59%","percentage Fake=44.93%","percentage Fake=45.71%","percentage Fake=45.07%","percentage Fake=44.44%","percentage Fake=43.84%","percentage Fake=43.24%","percentage Fake=42.67%","percentage Fake=43.42%","percentage Fake=44.16%","percentage Fake=43.59%","percentage Fake=44.30%","percentage Fake=43.75%","percentage Fake=44.44%","percentage Fake=43.90%","percentage Fake=44.58%","percentage Fake=44.05%","percentage Fake=44.71%","percentage Fake=44.19%","percentage Fake=43.68%","percentage Fake=44.32%","percentage Fake=43.82%","percentage Fake=43.33%","percentage Fake=42.86%","percentage Fake=42.39%","percentage Fake=41.94%","percentage Fake=41.49%","percentage Fake=41.05%","percentage Fake=41.67%","percentage Fake=41.24%","percentage Fake=40.82%","percentage Fake=40.40%","percentage Fake=40.00%"],"x":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0],"y":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0],"type":"scatter"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"font":{"size":18},"text":"Cumulative percentage per category<br>when sampling top X%","x":0.5},"xaxis":{"title":{"text":"Top X% model scores"},"spikemode":"across","range":[0,100],"nticks":10},"yaxis":{"title":{"text":"Cumulative precision per category"}},"hovermode":"x","plot_bgcolor":"#fff","shapes":[{"type":"line","x0":100,"x1":100,"xref":"x","y0":0,"y1":100.0,"yref":"y"}],"annotations":[{"ax":60,"text":"percentile=100.00","x":100,"y":20,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+     
+</div>
+<div class="tab-pane" id="Individual Predictions" role="tabpanel" aria-labelledby="Individual Predictions-tab">
+ <div><H1>Individual Predictions</H1></div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+Selected index: <b>467</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Prediction</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">label</th>
+      <th scope="col">probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fake*</td>
+      <td>39.6 %</td>
+    </tr>
+    <tr>
+      <td>True</td>
+      <td>60.4 %</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="1c6b2c88-b891-4b64-9bc7-5de1df2b5eb5" class="plotly-graph-div" style="height:250px; width:250px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("1c6b2c88-b891-4b64-9bc7-5de1df2b5eb5")) {                    Plotly.newPlot(                        "1c6b2c88-b891-4b64-9bc7-5de1df2b5eb5",                        [{"hole":0.3,"labels":["Fake*","True"],"sort":false,"values":[0.396,0.604],"type":"pie"}],                        {"autosize":false,"height":250,"margin":{"b":20,"l":20,"pad":4,"r":20,"t":30},"showlegend":false,"width":250,"template":{"data":{"scatter":[{"type":"scatter"}]}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Contributions Plot</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="706b9885-4445-4e42-bc91-693ffff0e286" class="plotly-graph-div" style="height:600px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("706b9885-4445-4e42-bc91-693ffff0e286")) {                    Plotly.newPlot(                        "706b9885-4445-4e42-bc91-693ffff0e286",                        [{"hoverinfo":"skip","marker":{"color":"rgba(1,1,1, 0.0)"},"name":"","x":["Population<br>average","Topic_1","Topic_0","Topic_2","Other features combined","Topic_3","Final Prediction"],"y":[0.0,54.26,60.77,65.54,68.19,68.19,0.0],"type":"bar"},{"hoverinfo":"text","marker":{"color":["rgba(230, 230, 30, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(55, 128, 191, 0.7)"],"line":{"color":["rgba(190, 190, 30, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(55, 128, 191, 1.0)"],"width":2}},"name":"contribution","text":["Population<br>average=<BR>+54.26 ","Topic_1=0.03146415576338768<BR>+6.51 ","Topic_0=0.03125639259815216<BR>+4.77 ","Topic_2=0.03125732019543648<BR>+2.66 ","Other features combined=<BR>0.0 ","Topic_3=0.9060220718383789<BR>-7.76 ","Final Prediction=<BR>+60.43 "],"x":["Population<br>average","Topic_1","Topic_0","Topic_2","Other features combined","Topic_3","Final Prediction"],"y":[54.26,6.51,4.77,2.66,0.0,-7.76,60.43],"type":"bar"}],                        {"barmode":"stack","height":600,"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Contribution to prediction probability = 60.43%","x":0.5},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"range":[0,100],"title":{"text":"Predicted %"}},"margin":{"b":138,"l":40,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Partial Dependence Plot</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="227f4cdb-1620-45c1-94e3-a34da6c8d8e8" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("227f4cdb-1620-45c1-94e3-a34da6c8d8e8")) {                    Plotly.newPlot(                        "227f4cdb-1620-45c1-94e3-a34da6c8d8e8",                        [{"line":{"color":"grey","width":4},"mode":"lines+markers","name":"average prediction <br>for different values of <br>Topic_3","x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[57.32,57.21,57.07,56.98,56.84,56.71,56.05,50.34,48.19,46.79],"type":"scatter"},{"line":{"color":"blue","width":4},"mode":"lines+markers","name":"prediction for index 0 <br>for different values of <br>Topic_3","x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[69.48,69.39,69.27,69.18,69.06,68.95,68.36,63.09,61.04,59.66],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[68.50821649960524,68.40932991927583,68.28735802954343,68.20193143418145,68.0784751574974,67.96196207384412,67.36736427108508,62.024634500588945,59.94645015033577,58.561236147314034],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[69.85674044625074,69.76022459237906,69.64116058739988,69.55775989640833,69.43721580013053,69.3234341948033,68.74251985203995,63.50347185087954,61.4562100726868,60.08866839994569],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[57.93763897980799,57.82595485711924,57.68834558316828,57.59206393209263,57.45306123660045,57.32202872227409,56.65563350825708,50.835256853902166,48.649587462782115,47.21606777713392],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.0871661181591,50.972641994078614,50.83162981296778,50.73303041288663,50.59077321135985,50.45677184296399,49.77676107112238,43.94062941297411,41.795479869430324,40.40185901298927],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.57643327256362,52.46216099151686,52.321438432240555,52.223028121734025,52.08102426879546,51.94724051371613,51.268019543726275,45.4170877567407,43.25682443241119,41.85061682304397],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[69.48317434756643,69.38598502661205,69.26609476325912,69.18211829328573,69.0607463411233,68.94618804246147,68.36137970701543,63.09260219957632,61.0363534710948,59.66362996680788],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[53.96531467481223,53.85144833222794,53.711205560071384,53.613117581685025,53.47155970234526,53.338175410106956,52.66067258637479,46.80299528485527,44.63041676123522,43.21332383489653],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[67.90991226466788,67.81002724245434,67.68683130112044,67.60055232369056,67.47587136492919,67.35821023563491,66.75787097044726,61.37233509473094,59.28175743847821,57.88960236166736],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.498400321118076,52.38410770835568,52.243361064048685,52.14493453560651,52.00290818819501,51.869104222327934,51.189795358281486,45.33913973533113,43.179457186269985,41.77377031992204],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[58.18749791394238,58.076165815044455,57.93899104553281,57.84301391414163,57.70445160405353,57.57383504401668,56.90956806535286,51.109125306693684,48.9319345270842,47.504406922777484],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.56954024474927,51.45507126419946,51.31411985283327,51.215558268774565,51.07334884238384,50.93938514155095,50.25945566776365,44.41636093701972,42.26511648529768,40.86648540251941],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[54.35807450262685,54.24439751740944,54.10438423391739,54.006454319878685,53.865121016380634,53.73194451652898,53.05544033388391,47.20271632180026,45.030522120605504,43.61334059516579],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[70.60069277933955,70.50555637295135,70.3881852254441,70.30596450129337,70.18711739688142,70.07492837848542,69.5020056699442,64.3244852878065,62.296097639976466,60.939542298393775],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.7644864967543,52.650260064833766,52.50959131560684,52.411216896820854,52.269262312651776,52.13552224892236,51.45648232500276,45.60430040689384,43.44231221603871,42.03461927832221],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[68.54413269236157,68.4453071190442,68.3234100351709,68.23803554067935,68.11465413436974,67.99821125019953,67.40396473564178,62.06386974823987,59.986456965729005,58.60167858705567],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.63256407827227,52.51829620261531,52.37757753348418,52.279168934470846,52.13716608365417,52.00338168246,51.32413345553345,45.471182137480646,43.30926501183765,41.90168026348547],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[70.61836310826816,70.5232601236828,70.4059299998062,70.32373787576557,70.20493191123894,70.0927815104517,69.52005271885497,64.3440350590048,62.31611368747121,60.959831776692],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[69.41613494245865,69.31882621524336,69.19878947440323,69.11471094384093,68.99319226689606,68.87849633088831,68.29299824047139,63.01897630729294,60.961153998577885,59.587527678279706],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.730440043981154,52.616212173249345,52.47554256433493,52.377168144503585,52.2352144326465,52.10147613862025,51.42245953245068,45.57157322312174,43.41064018331979,42.00383135297031],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[53.646615386407795,53.53264769058301,53.392285163203745,53.29411675726005,53.15244764329925,53.018963769917335,52.34103361013658,46.485211819256186,44.31591765242214,42.90174906614314],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[58.150045650476414,58.03864855647615,57.90139341920696,57.80535986843716,57.666715830549975,57.536021930079585,56.87135705615718,51.067042669331975,48.88815242451876,47.459414919097654],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[53.96778702799077,53.853921584913344,53.713679886189404,53.61559263599012,53.474035774776716,53.34065240645486,52.66315374520401,46.805475660507554,44.632880235835124,43.21577149788094],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.862873983680544,51.748457472576725,51.60756737846113,51.509046516136905,51.3668927244437,51.232978066069165,50.553247382516055,44.70857151873834,42.55538973245274,41.15515641285704],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.961897402010734,51.84749033068582,51.70660964748722,51.6080939123356,51.46594540597715,51.332033439312916,50.652282013750074,44.80492321346488,42.649517291996645,41.247441254506235],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.58001704879018,52.465745647947806,52.325024124403164,52.22661450659339,52.084611607348386,51.95082870121247,51.271611300214644,45.42065929989122,43.2603656928824,41.85413185705466],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[55.8617845150723,55.74881404885589,55.60964990124312,55.512300078022335,55.37178390284384,55.23935567722924,54.56632734039145,48.72092631323881,46.54104493546545,45.11580440993434],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[57.154326743000794,57.04219710807548,56.90405255377774,56.807405343087424,56.66788790671989,56.53638425888607,55.86780491151476,50.04366021406933,47.86388973580532,46.436489647300874],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[64.89338111504598,64.78894860069954,64.66018284683754,64.57002872066658,64.4397850735883,64.31691481430883,63.69060656435867,58.11723287176953,55.97531301695066,54.555555643158485],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[58.19190057515189,58.08056792345836,57.94339232882337,57.8474145255054,57.7088511078137,57.57823335472148,56.91395806393895,51.11327610882797,48.935912190822606,47.50824413338313],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[50.641168499054814,50.52661041172348,50.385562325966035,50.28694169391169,50.144659470534734,50.01064058779961,49.330631191752225,43.500518552925385,41.36013715845131,39.97029473778351],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[64.68201716546716,64.57729737411361,64.44818014103512,64.35778172724056,64.22718777699848,64.10398987747593,63.476054249825374,57.89133502904754,55.74654775906615,54.325343895454395],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.957785687553034,51.843377896938634,51.70249638669052,51.60398011167479,51.46183088215771,51.32791829454438,50.648164619098445,44.80084860552324,42.64548645321325,41.24344695054192],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[58.16456527168674,58.05319276244173,57.91596801830055,57.81995579977984,57.68134265725495,57.55067798711438,56.88616339904403,51.08330514988619,48.90505206307731,47.476767916081926],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[60.54016506733291,60.430657686495834,60.29569396790969,60.20123939195615,60.06483966096815,59.936223194797,59.28154900102479,53.52296222071614,51.341462105147016,49.90495734244283],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[56.81439963839321,56.70206510038294,56.56367315802998,56.46685618955111,56.32709851190169,56.19537363236729,55.52574772814663,49.69802977250865,47.51949388894297,46.09366673922769],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.9063870922506,51.791978025921395,51.65109648447124,51.5525811998174,51.410434871616516,51.276526612779904,50.59681897253962,44.75169422554174,42.59805789463797,41.19744655984685],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.9689332022243,51.8545274109094,51.713648212321075,51.61513345534659,51.47298627350543,51.339075460842984,50.65932849564893,44.81191535343147,42.65645040081146,41.25432577589603],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.02976146957262,51.91536660492169,51.77450000882359,51.6759935055684,51.53385742228532,51.399956189131345,50.72024475068835,44.87223734647546,42.71614990122808,41.313504916824904],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[69.2238185315979,69.12616908172264,69.0057143827229,68.92134464054591,68.79940732171562,68.6843186844213,68.09685279070696,62.80788030333678,60.74557693113145,59.36938102274942],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[57.09964912570955,56.98750141702254,56.84933577753123,56.75267459162002,56.61313810888816,56.48161772976199,55.81297169169016,49.98958622683753,47.81075326296406,46.38417277027561],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.62865870979174,52.51438990297667,52.373670141984306,52.27526081536288,52.1332569667758,51.999471681922614,51.320219811754264,45.46729519868726,43.30541404677434,41.8978602082353],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[51.64129343293504,51.526834700937094,51.385894905397045,51.28734078576721,51.14514117515051,51.01118569003455,50.33128250329335,44.48735804596111,42.33533641655169,40.936065613295966],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.733326218163036,52.619083086826144,52.47839350533614,52.38000434034723,52.23802821604278,52.10426757197808,51.42511868749232,45.57156177927579,43.40876762967255,42.00042584519195],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[69.85304961664504,69.75652704866563,69.63745480582591,69.55404837394286,69.43349602292608,69.31970667250079,68.73875349176483,63.49940858636565,61.452056974774585,60.084463522756884],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[56.388263860832964,56.27563323067755,56.13688158213874,56.03981629349944,55.89970498506751,55.76765201704632,55.096436439792186,49.26030453991182,47.08104025652166,45.65541905770945],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[64.70375494548611,64.59907458225828,64.47000602799923,64.37964173904257,64.24909715198608,64.12594589191023,63.49824914151512,57.91579801128863,55.77199849165157,54.351502909037784],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[67.8276131235166,67.72759305823465,67.60423158023674,67.5178373433018,67.39299080255077,67.2751744746169,66.67405937621051,61.282761211591286,59.190526053287684,57.79744644056611],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.01792952070794,51.903540331650355,51.76268169034468,51.664181385642785,51.52205517275442,51.38816424381716,50.70852034792577,44.86228016393611,42.707486844723455,41.30590952763802],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[68.93841029663439,68.84026174673438,68.71919489378998,68.6343986890378,68.51184837305634,68.3961848088089,67.80583929891387,62.495084226968075,60.42630427526225,59.046414678281664],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0045743416994810104,0.015144127421081066,0.028148842975497246,0.03723581507802009,0.05033741146326065,0.06266923993825912,0.1251155138015747,0.6553531885147093,0.8497331142425537,0.9765380024909973],"y":[52.5933911634443,52.479122875324094,52.33840499337803,52.23999779655737,52.09799820846159,51.96421822481734,51.28501271360283,45.43395954205122,43.27353664602475,41.867192114506224],"type":"scatter"}],                        {"plot_bgcolor":"#fff","title":{"text":"pdp plot for Topic_3"},"xaxis":{"title":{"text":"Topic_3"}},"yaxis":{"title":{"text":"Predicted Prediction (Predicted %)"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"text":"baseline value = 0.91","x":0.91,"y":39.97029473778351},{"text":"baseline pred = 60.43","x":0.06266923993825912,"y":60.429879552692356}],"shapes":[{"line":{"color":"MediumPurple","dash":"dot","width":4},"type":"line","x0":0.91,"x1":0.91,"xref":"x","y0":39.97029473778351,"y1":70.61836310826816,"yref":"y"},{"line":{"color":"MediumPurple","dash":"dot","width":4},"type":"line","x0":0.0045743416994810104,"x1":0.9765380024909973,"xref":"x","y0":60.429879552692356,"y1":60.429879552692356,"yref":"y"}],"showlegend":false,"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Contributions Table</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Reason</th>
+      <th scope="col">Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Average of population</td>
+      <td>54.26%</td>
+    </tr>
+    <tr>
+      <td>Topic_3 = 0.9060220718383789</td>
+      <td>-7.76%</td>
+    </tr>
+    <tr>
+      <td>Topic_1 = 0.03146415576338768</td>
+      <td>+6.51%</td>
+    </tr>
+    <tr>
+      <td>Topic_0 = 0.03125639259815216</td>
+      <td>+4.77%</td>
+    </tr>
+    <tr>
+      <td>Topic_2 = 0.03125732019543648</td>
+      <td>+2.66%</td>
+    </tr>
+    <tr>
+      <td>Other features combined</td>
+      <td>+0.0%</td>
+    </tr>
+    <tr>
+      <td>Final prediction</td>
+      <td>60.43%</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+     
+</div>
+<div class="tab-pane" id="What if..." role="tabpanel" aria-labelledby="What if...-tab">
+ <div><div><H1>What if...</H1></div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+Selected index: <b>93</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Prediction</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">label</th>
+      <th scope="col">probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fake</td>
+      <td>41.5 %</td>
+    </tr>
+    <tr>
+      <td>True</td>
+      <td>58.5 %</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="03003b49-996f-4f84-84d4-4236d2b4fd3d" class="plotly-graph-div" style="height:250px; width:250px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("03003b49-996f-4f84-84d4-4236d2b4fd3d")) {                    Plotly.newPlot(                        "03003b49-996f-4f84-84d4-4236d2b4fd3d",                        [{"hole":0.3,"labels":["Fake","True"],"sort":false,"values":[0.415,0.585],"type":"pie"}],                        {"autosize":false,"height":250,"margin":{"b":20,"l":20,"pad":4,"r":20,"t":30},"showlegend":false,"width":250,"template":{"data":{"scatter":[{"type":"scatter"}]}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Feature Input</h3><h6 class="card-subtitle">Adjust the feature values to change the prediction</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div></div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Topic_1">Topic_1</label>
+    <input id="Topic_1" type="text" value="0.20575088262557983" name="Topic_1" disabled>
+</div>
+    
+</div>
+        
+<div class="col-sm">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Topic_0">Topic_0</label>
+    <input id="Topic_0" type="text" value="0.03448956459760666" name="Topic_0" disabled>
+</div>
+    
+</div>
+        
+<div class="col-sm">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Topic_2">Topic_2</label>
+    <input id="Topic_2" type="text" value="0.03280778229236603" name="Topic_2" disabled>
+</div>
+    
+</div>
+        
+<div class="col-sm">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Topic_3">Topic_3</label>
+    <input id="Topic_3" type="text" value="0.7269517779350281" name="Topic_3" disabled>
+</div>
+    
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Contributions Plot</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="d85bbbb9-9fb2-421b-b17e-500d5d650a0d" class="plotly-graph-div" style="height:600px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d85bbbb9-9fb2-421b-b17e-500d5d650a0d")) {                    Plotly.newPlot(                        "d85bbbb9-9fb2-421b-b17e-500d5d650a0d",                        [{"hoverinfo":"skip","marker":{"color":"rgba(1,1,1, 0.0)"},"name":"","x":["Population<br>average","Topic_1","Topic_0","Topic_2","Topic_3","Other features combined","Final Prediction"],"y":[0.0,54.26,57.03,61.76,64.42,58.51,0.0],"type":"bar"},{"hoverinfo":"text","marker":{"color":["rgba(230, 230, 30, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(55, 128, 191, 0.7)"],"line":{"color":["rgba(190, 190, 30, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(55, 128, 191, 1.0)"],"width":2}},"name":"contribution","text":["Population<br>average=<BR>+54.26 ","Topic_1=0.20575088262557983<BR>+2.77 ","Topic_0=0.03448956459760666<BR>+4.73 ","Topic_2=0.03280778229236603<BR>+2.66 ","Topic_3=0.7269517779350281<BR>-5.91 ","Other features combined=<BR>0.0 ","Final Prediction=<BR>+58.51 "],"x":["Population<br>average","Topic_1","Topic_0","Topic_2","Topic_3","Other features combined","Final Prediction"],"y":[54.26,2.77,4.73,2.66,-5.91,0.0,58.51],"type":"bar"}],                        {"barmode":"stack","height":600,"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Contribution to prediction probability = 58.51%","x":0.5},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"range":[0,100],"title":{"text":"Predicted %"}},"margin":{"b":138,"l":40,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Partial Dependence Plot</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="2c720eae-8e6e-4790-9bd1-3d769fa057c1" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2c720eae-8e6e-4790-9bd1-3d769fa057c1")) {                    Plotly.newPlot(                        "2c720eae-8e6e-4790-9bd1-3d769fa057c1",                        [{"line":{"color":"grey","width":4},"mode":"lines+markers","name":"average prediction <br>for different values of <br>Topic_1","x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.89,60.59,60.32,60.09,59.9,58.29,54.26,46.42,42.56,39.76],"type":"scatter"},{"line":{"color":"blue","width":4},"mode":"lines+markers","name":"prediction for index 0 <br>for different values of <br>Topic_1","x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[62.82,62.53,62.26,62.03,61.84,60.24,56.19,48.25,44.3,41.43],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.96723645702436,60.670711249871026,60.389986866781186,60.162662819365956,59.964108235601955,58.33607969805982,54.24328519160589,46.285845528316536,42.36405017181421,39.534252491693785],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[70.62156380931216,70.36304544960245,70.11772739977377,69.91866320477897,69.74448990240592,68.30565765036526,64.60198148321444,57.02532654047406,53.095532097104446,50.17436110721071],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[58.266142668082544,57.96346520094446,57.6771031692198,57.44534685600892,57.24301820472215,55.58745551203844,51.452084807796936,43.51902992432767,39.66025398675952,36.89645733207261],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.515255245617396,60.21778372998297,59.936193474266844,59.7081896194819,59.5090568785675,57.87683489294573,53.77776100837597,45.825182597145556,41.91387878200366,39.09490414987323],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[61.01760179689716,60.72110550447025,60.44040516858485,60.21309823558426,60.01455688149137,58.38657718153255,54.29345358750373,46.333680678615906,42.40999616899304,39.57856217548642],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[51.734111289910146,51.42381437026583,51.13070391736684,50.89381295889843,50.68724029291817,49.00526032270141,44.86754122712171,37.17513871918407,33.545101786916085,30.988384294729443],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[61.02774212354687,60.73124352534363,60.45054032640421,60.223230593674195,60.02468644398683,58.39667172890922,54.303369783488264,46.3429239327639,42.41877278843998,39.58695528144908],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[52.09658003612012,51.78643920703434,51.49345065059463,51.25664007026509,51.05012425990707,49.3681481716573,45.226956098890696,37.51491280225402,33.86963950368364,31.299888807015673],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[67.56301575852206,67.29003214798406,67.03117987021521,66.82127084328607,66.63770974467708,65.1249220538659,61.26016596659889,53.48301715575716,49.51601396085864,46.59613252451283],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[62.82481183034694,62.53377644175787,62.25812507790287,62.03482041726151,61.83971160924408,60.23764894045377,56.192028845600326,48.251293785625045,44.300782797895096,41.43492079638694],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[63.042641970790214,62.752345397472375,62.477379179741575,62.25461912364527,62.05997850830006,60.461490147280884,56.422744112928704,48.48645870809946,44.53365678303602,41.664244807196816],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[53.01950241967002,52.70990417276052,52.41736325933227,52.180868376772736,51.974594218594994,50.29341767404934,46.14530411139048,38.38651151872918,34.70371942839548,32.101538753186375],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[68.52437120235791,68.25568234444506,68.0008429992361,67.7941456080709,67.61336178386428,66.12235177808087,62.3042131476092,54.581348583229925,50.62155268462981,47.6980771261716],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.99924082543482,60.702705961829786,60.421970354010334,60.19463574389105,59.99607086277541,58.367920939210634,54.2745462153089,46.314993064121055,42.3917522510649,39.56077283569549],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.95447169243049,60.65790855830594,60.37714914407453,60.14979735316264,59.95121899410767,58.323011613747845,54.22989485199747,46.272355273784285,42.350769217702975,39.52122953444777],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[67.48529432124427,67.21191620993419,66.95269511837839,66.74249078234268,66.55867421376436,65.04388002895072,61.17480844680774,53.39258585430087,49.42488909141055,46.50532540529227],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[51.9882023279876,51.67801130122639,51.384982970359715,51.148145671023016,50.941610521319625,49.259614346630016,45.11941572729471,37.413172925043554,33.77242924578924,31.20656112943473],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.99862263275331,60.702151031512926,60.42147530307038,60.194189165744405,59.9956666061759,58.367862617176755,54.27533831374992,46.3172640888321,42.39461638845807,39.56399091599042],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[57.258084728404,56.95356718362389,56.66553415793318,56.4324752208465,56.22904570789811,54.56574689287561,50.420917978147884,42.50884630585115,38.67870767352594,35.942778028632304],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[64.5909831600161,64.3061329661824,64.03622353680656,63.81748736776771,63.62630931412554,62.054370068624785,58.067625087332495,50.16975311099401,46.2040795451888,43.31181506870189],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[56.88492548117649,56.5797846864172,56.291188076601486,56.05769156547441,55.85389359098581,54.18805327828596,50.04053768645701,42.13773230785034,38.318837862721686,35.59363024732459],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[51.80667236113047,51.49640405420218,51.20331551533115,50.96643863746601,50.759875601244055,49.077882193453334,44.939433757461735,37.243043450664175,33.60993544512068,31.05059694098862],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[69.71409680136512,69.45104264468047,69.20147543967042,68.999002631617,68.82187585885548,67.35967730637043,63.6043053461581,55.959615038754215,52.0143595775889,49.090416691992246],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[57.18059922398295,56.87600648067005,56.5879072483817,56.354798234763294,56.15132756116689,54.4877808571687,50.343011083851906,42.43364962006447,38.6060074556108,35.87232200026581],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[63.949426342983806,63.662193385745155,63.39006904321981,63.169568506508135,62.976870822962795,61.393231033223515,57.383173957658705,49.466145571481235,45.504426905529,42.62077422417658],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[52.78925541157877,52.47950230235886,52.18683126579208,51.95024269962643,51.743895230686675,50.06241299725536,45.91576720144642,38.168196159557176,34.494590563065294,31.9003973497648],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[52.79775921066143,52.48801153182123,52.19534502971711,51.95875970553272,51.752414755015295,50.070942307398624,45.92423892867081,38.17624882986697,34.50230272586014,31.907814079533292],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[56.82561563292118,56.52040184842936,56.23174014423458,55.99819376512133,55.7943543089234,54.128246129686396,49.9806103606583,42.07969923846189,38.26270109067241,35.53923226749787],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[54.54701154912814,54.23877246621149,53.94740873279649,53.71178939528852,53.506223319734744,51.828884437752755,47.675455715247914,39.849786034365415,36.10903717390076,33.45564300304805],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[67.56018564249558,67.28718939073724,67.02832530672251,66.81840683496483,66.63483757185107,65.12198596577761,61.25709395322952,53.47979130251168,49.512771443268974,46.59290447877174],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[67.6922625323133,67.41984305393865,67.16151759562223,66.95202998144357,66.7688331443599,65.25889623968088,61.4001979415551,53.62989640297552,49.66363346543432,46.74310768736479],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[53.00477173794501,52.695163175429094,52.40261355173087,52.166112364167894,51.959833244312925,50.27863493855922,46.1306099820676,38.37252659733837,34.69031897704631,32.088647473595834],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[53.019565287390236,52.70996721744247,52.41742646247474,52.18093170178191,51.974657645334055,50.29348177018146,46.145368620288075,38.386571945176286,34.703775685268525,32.10159121124021],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[65.96924051998356,65.68964616160791,65.42462792479843,65.20979206266446,65.02197631093331,63.476032241571986,59.54195921883312,51.69173943711495,47.72126225779014,44.813260123111384],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[53.31038095319528,53.00099722608094,52.708638551545825,52.47227645948763,52.266107512510764,50.58541975737095,46.435701148545824,38.66315290997482,34.96891862428481,32.35674299759295],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[58.517900148910144,58.215750465251126,57.929870287872454,57.69849149954097,57.49648333145325,55.84322397986385,51.71111929689346,43.77435387185297,39.90901508956261,37.138598028728],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[59.40751846422142,59.10749972320319,58.82357304831592,58.593730664994595,58.393031172953734,56.74933416737616,52.632131824109294,44.6875109941422,40.8007571881514,38.00783119168615],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[57.624516027699414,57.320668281469736,57.03324327188067,56.800658139782925,56.59762891248479,54.93713827558202,50.79570009679119,42.87576945528711,39.035049135261055,36.288846320879244],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[62.689446841022644,62.398224571692964,62.12240436804264,61.89896872387012,61.70374969744393,60.10092922137515,56.05452361196619,48.11660074157029,44.169463879082514,41.306813142071086],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[61.01242781266117,60.71595971111583,60.435286389023716,60.208001557945735,60.009479671521284,58.38166500620311,54.28899193846978,46.330178803826946,42.40697485028576,39.57587870358539],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[61.25005559711488,60.954617483894445,60.674901858163665,60.44838009415604,60.250515555557,58.62776604889069,54.545204820687886,46.59475052308291,42.66988664330433,39.83512405777347],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[68.93097367742051,68.66417036627332,68.41109438568019,68.20580936700445,68.02624772086945,66.54485034908969,62.74752344197441,55.049984508948945,51.094443285258016,48.17030032294889],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[65.99427839544771,65.71478308053085,65.4498571127382,65.2350948973728,65.04734268563273,63.50189170371029,59.56883274935231,51.719603027756655,47.74910203620594,44.84085881710902],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[58.68246372346723,58.380666740459056,58.09510886083047,57.86398280040926,57.66218933487431,56.010478776749764,51.88061933800042,43.94163606914057,40.07209853711624,37.29741234797845],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.985904831700545,60.689379190747914,60.40865318785327,60.18132697299112,59.98276987333111,58.35469919108822,54.26163775101188,46.303094341297914,42.38051033316265,39.55005732064136],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[52.220237499473164,51.91015710604242,51.617216936579446,51.38043928401841,51.17394767819313,49.49201221925543,45.34973186475458,37.6311553897903,33.98075155311148,31.406595393560032],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[53.02921749180249,52.71962621134482,52.42709119224532,52.1906005858693,51.98432980055272,50.303168345887784,46.15499751939944,38.39573675490955,34.712557753390534,32.11003977939099],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[60.98324587189363,60.68673436127807,60.40602189403684,60.178706750330434,59.980159399853164,58.35217127773487,54.259334507193536,46.301266700843804,42.378919325467116,39.548632027596824],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[69.50917282521807,69.24512284107988,68.99462333819798,68.79140308369377,68.61362898626643,67.14632034705723,63.3797331581064,55.720694330333856,51.772478235734724,48.848290763514804],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.004576965235173702,0.018405452370643616,0.03146415576338768,0.042016044259071315,0.05121631547808647,0.12612824141979218,0.3112824559211731,0.6665756106376645,0.8439010977745056,0.9745418429374695],"y":[65.99742877312198,65.71794592035172,65.45303156247392,65.23827861396376,65.05053439744725,63.5051454637703,59.57221414258185,51.72310916794041,47.752605310831946,44.844331868284684],"type":"scatter"}],                        {"plot_bgcolor":"#fff","title":{"text":"pdp plot for Topic_1"},"xaxis":{"title":{"text":"Topic_1"}},"yaxis":{"title":{"text":"Predicted Prediction (Predicted %)"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"text":"baseline value = 0.21","x":0.21,"y":30.988384294729443},{"text":"baseline pred = 58.51","x":0.12612824141979218,"y":58.511175257664206}],"shapes":[{"line":{"color":"MediumPurple","dash":"dot","width":4},"type":"line","x0":0.21,"x1":0.21,"xref":"x","y0":30.988384294729443,"y1":70.62156380931216,"yref":"y"},{"line":{"color":"MediumPurple","dash":"dot","width":4},"type":"line","x0":0.004576965235173702,"x1":0.9745418429374695,"xref":"x","y0":58.511175257664206,"y1":58.511175257664206,"yref":"y"}],"showlegend":false,"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Contributions Table</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Reason</th>
+      <th scope="col">Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Average of population</td>
+      <td>54.26%</td>
+    </tr>
+    <tr>
+      <td>Topic_1 = 0.20575088262557983</td>
+      <td>+2.77%</td>
+    </tr>
+    <tr>
+      <td>Topic_0 = 0.03448956459760666</td>
+      <td>+4.73%</td>
+    </tr>
+    <tr>
+      <td>Topic_2 = 0.03280778229236603</td>
+      <td>+2.66%</td>
+    </tr>
+    <tr>
+      <td>Topic_3 = 0.7269517779350281</td>
+      <td>-5.91%</td>
+    </tr>
+    <tr>
+      <td>Other features combined</td>
+      <td>+0.0%</td>
+    </tr>
+    <tr>
+      <td>Final prediction</td>
+      <td>58.51%</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+    </div> 
+</div>
+<div class="tab-pane" id="Feature Dependence" role="tabpanel" aria-labelledby="Feature Dependence-tab">
+ <div><H1>Feature Dependence</H1></div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+
+<div class="card-deck">
+    
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Shap Summary</h3><h6 class="card-subtitle">Ordering features by shap value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="d413f8b7-af9c-485b-ba2f-ebdfa5237603" class="plotly-graph-div" style="height:280px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d413f8b7-af9c-485b-ba2f-ebdfa5237603")) {                    Plotly.newPlot(                        "d413f8b7-af9c-485b-ba2f-ebdfa5237603",                        [{"hoverinfo":"text","orientation":"h","x":[0.026991364179082634,0.031530859678922794,0.05886573526780256,0.06754266667299898],"y":["4. Topic_3","3. Topic_2","2. Topic_0","1. Topic_1"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average impact on predicted Prediction<br>(mean absolute SHAP value)"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":280,"margin":{"b":40,"l":49,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-header"><h3 class="card-title">Shap Dependence</h3><h6 class="card-subtitle">Relationship between feature value and SHAP value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col-sm">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>                <div id="592d6e3e-b4ef-4b4c-adf4-47377ffe692e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("592d6e3e-b4ef-4b4c-adf4-47377ffe692e")) {                    Plotly.newPlot(                        "592d6e3e-b4ef-4b4c-adf4-47377ffe692e",                        [{"hoverinfo":"text","marker":{"color":[0.04249747,0.05132369,0.66337645,0.013982391,0.953878,0.08352733,0.011748156,0.05016808,0.023807598,0.0181715,0.043186393,0.87086445,0.06256268,0.035795495,0.06252565,0.871168,0.4516545,0.031256393,0.90078056,0.036111224,0.034489565,0.9463813,0.014933453,0.67503655,0.18067886,0.0325803,0.08343943,0.7490124,0.50268847,0.96861714,0.01930482,0.903893,0.3599342,0.871705,0.5944979,0.036923826,0.05008518,0.064258225,0.05208617,0.5694758,0.052274767,0.08370971,0.9744299,0.008233356,0.016129062,0.05363857,0.9342722,0.0046404004,0.08719943,0.006157768,0.007730109,0.05026718,0.12508146,0.050056912,0.0501161,0.035739843,0.05119549,0.23260255,0.40333527,0.037774485,0.0087406915,0.036182933,0.011456735,0.028114889,0.03266096,0.031633306,0.35846984,0.92578125,0.84782565,0.022010298,0.06817452,0.19312441,0.013125199,0.89034927,0.8895723,0.30684462,0.23478708,0.06717766,0.34180623,0.1251057,0.027976679,0.8495184,0.93572,0.065900475,0.98628914,0.085005485,0.03140879,0.063111454,0.12517916,0.23571354,0.31414673,0.8473512,0.45901003,0.024614142,0.8721273,0.05074768,0.010146522,0.04171888,0.011340036,0.25],"colorbar":{"title":{"text":"Topic_0"}},"colorscale":[[0.0,"rgb(0,0,255)"],[1.0,"rgb(255,0,0)"]],"opacity":0.6,"showscale":true,"size":7},"mode":"markers","text":["None=229<br>Topic_1=0.043343305587768555<br>Topic_0=0.04249747097492218<br>SHAP=0.063","None=337<br>Topic_1=0.8480359315872192<br>Topic_0=0.05132368952035904<br>SHAP=-0.113","None=327<br>Topic_1=0.2338496744632721<br>Topic_0=0.6633764505386353<br>SHAP=0.021","None=416<br>Topic_1=0.9572594165802002<br>Topic_0=0.013982390984892845<br>SHAP=-0.136","None=306<br>Topic_1=0.01530403085052967<br>Topic_0=0.9538779854774475<br>SHAP=0.068","None=131<br>Topic_1=0.7493453025817871<br>Topic_0=0.0835273265838623<br>SHAP=-0.091","None=5<br>Topic_1=0.011582508683204651<br>Topic_0=0.011748155578970909<br>SHAP=0.069","None=431<br>Topic_1=0.051827799528837204<br>Topic_0=0.050168078392744064<br>SHAP=0.061","None=434<br>Topic_1=0.023641197010874748<br>Topic_0=0.023807598277926445<br>SHAP=0.067","None=134<br>Topic_1=0.45739197731018066<br>Topic_0=0.01817150041460991<br>SHAP=-0.027","None=276<br>Topic_1=0.04224667325615883<br>Topic_0=0.04318639263510704<br>SHAP=0.063","None=264<br>Topic_1=0.043125350028276443<br>Topic_0=0.8708644509315491<br>SHAP=0.062","None=34<br>Topic_1=0.8123008608818054<br>Topic_0=0.06256268173456192<br>SHAP=-0.105","None=274<br>Topic_1=0.03621585667133331<br>Topic_0=0.03579549491405487<br>SHAP=0.064","None=489<br>Topic_1=0.8121769428253174<br>Topic_0=0.06252565234899521<br>SHAP=-0.105","None=11<br>Topic_1=0.042436182498931885<br>Topic_0=0.8711680173873901<br>SHAP=0.062","None=378<br>Topic_1=0.5115335583686829<br>Topic_0=0.45165449380874634<br>SHAP=-0.040","None=467<br>Topic_1=0.03146415576338768<br>Topic_0=0.03125639259815216<br>SHAP=0.065","None=425<br>Topic_1=0.0336894690990448<br>Topic_0=0.9007805585861206<br>SHAP=0.064","None=241<br>Topic_1=0.03586685284972191<br>Topic_0=0.03611122444272041<br>SHAP=0.064","None=93<br>Topic_1=0.20575088262557983<br>Topic_0=0.03448956459760666<br>SHAP=0.028","None=310<br>Topic_1=0.019019680097699165<br>Topic_0=0.9463812708854675<br>SHAP=0.067","None=189<br>Topic_1=0.9547721743583679<br>Topic_0=0.014933452941477299<br>SHAP=-0.136","None=277<br>Topic_1=0.03659860044717789<br>Topic_0=0.6750365495681763<br>SHAP=0.064","None=138<br>Topic_1=0.018405452370643616<br>Topic_0=0.1806788593530655<br>SHAP=0.068","None=332<br>Topic_1=0.9036282300949097<br>Topic_0=0.03258030116558075<br>SHAP=-0.125","None=313<br>Topic_1=0.7496631741523743<br>Topic_0=0.0834394320845604<br>SHAP=-0.091","None=59<br>Topic_1=0.08339168131351471<br>Topic_0=0.7490124106407166<br>SHAP=0.054","None=212<br>Topic_1=0.3951705992221832<br>Topic_0=0.502688467502594<br>SHAP=-0.014","None=171<br>Topic_1=0.010493689216673374<br>Topic_0=0.9686171412467957<br>SHAP=0.069","None=375<br>Topic_1=0.019421059638261795<br>Topic_0=0.019304819405078888<br>SHAP=0.068","None=85<br>Topic_1=0.033314697444438934<br>Topic_0=0.903892993927002<br>SHAP=0.064","None=266<br>Topic_1=0.5989977717399597<br>Topic_0=0.3599342107772827<br>SHAP=-0.059","None=36<br>Topic_1=0.042859163135290146<br>Topic_0=0.8717049956321716<br>SHAP=0.062","None=272<br>Topic_1=0.03005342371761799<br>Topic_0=0.5944979190826416<br>SHAP=0.066","None=287<br>Topic_1=0.33966782689094543<br>Topic_0=0.03692382574081421<br>SHAP=-0.002","None=185<br>Topic_1=0.6468479037284851<br>Topic_0=0.05008517950773239<br>SHAP=-0.069","None=338<br>Topic_1=0.06253717094659805<br>Topic_0=0.06425822526216507<br>SHAP=0.059","None=33<br>Topic_1=0.8439010977745056<br>Topic_0=0.05208617076277733<br>SHAP=-0.112","None=343<br>Topic_1=0.30394870042800903<br>Topic_0=0.5694758296012878<br>SHAP=0.006","None=363<br>Topic_1=0.05192608758807182<br>Topic_0=0.05227476730942726<br>SHAP=0.061","None=9<br>Topic_1=0.7387925982475281<br>Topic_0=0.0837097093462944<br>SHAP=-0.089","None=204<br>Topic_1=0.008619504049420357<br>Topic_0=0.9744299054145813<br>SHAP=0.069","None=472<br>Topic_1=0.008149003610014915<br>Topic_0=0.008233356289565563<br>SHAP=0.070","None=48<br>Topic_1=0.014917123131453991<br>Topic_0=0.016129061579704285<br>SHAP=0.069","None=280<br>Topic_1=0.23034366965293884<br>Topic_0=0.05363857001066208<br>SHAP=0.022","None=15<br>Topic_1=0.021799206733703613<br>Topic_0=0.9342722296714783<br>SHAP=0.067","None=184<br>Topic_1=0.1744690090417862<br>Topic_0=0.004640400409698486<br>SHAP=0.034","None=24<br>Topic_1=0.3587470054626465<br>Topic_0=0.08719942718744278<br>SHAP=-0.006","None=82<br>Topic_1=0.3214012384414673<br>Topic_0=0.0061577679589390755<br>SHAP=0.003","None=289<br>Topic_1=0.007747488562017679<br>Topic_0=0.00773010915145278<br>SHAP=0.070","None=182<br>Topic_1=0.05121631547808647<br>Topic_0=0.05026717856526375<br>SHAP=0.061","None=13<br>Topic_1=0.6224195957183838<br>Topic_0=0.12508146464824677<br>SHAP=-0.064","None=114<br>Topic_1=0.244524747133255<br>Topic_0=0.05005691200494766<br>SHAP=0.019","None=475<br>Topic_1=0.0504898801445961<br>Topic_0=0.050116099417209625<br>SHAP=0.061","None=440<br>Topic_1=0.03577212244272232<br>Topic_0=0.03573984280228615<br>SHAP=0.064","None=308<br>Topic_1=0.842667281627655<br>Topic_0=0.05119549110531807<br>SHAP=-0.112","None=368<br>Topic_1=0.016857244074344635<br>Topic_0=0.2326025515794754<br>SHAP=0.069","None=55<br>Topic_1=0.019072869792580605<br>Topic_0=0.4033352732658386<br>SHAP=0.068","None=132<br>Topic_1=0.8876853585243225<br>Topic_0=0.03777448460459709<br>SHAP=-0.121","None=237<br>Topic_1=0.9745418429374695<br>Topic_0=0.008740691468119621<br>SHAP=-0.140","None=470<br>Topic_1=0.037368178367614746<br>Topic_0=0.03618293255567551<br>SHAP=0.064","None=75<br>Topic_1=0.12612824141979218<br>Topic_0=0.01145673543214798<br>SHAP=0.045","None=316<br>Topic_1=0.9149000644683838<br>Topic_0=0.028114888817071915<br>SHAP=-0.127","None=370<br>Topic_1=0.6665756106376648<br>Topic_0=0.03266096115112305<br>SHAP=-0.073","None=151<br>Topic_1=0.03326750546693802<br>Topic_0=0.03163330629467964<br>SHAP=0.065","None=72<br>Topic_1=0.08361870050430298<br>Topic_0=0.3584698438644409<br>SHAP=0.054","None=172<br>Topic_1=0.025775181129574776<br>Topic_0=0.92578125<br>SHAP=0.066","None=164<br>Topic_1=0.051897913217544556<br>Topic_0=0.8478256464004517<br>SHAP=0.060","None=188<br>Topic_1=0.934992253780365<br>Topic_0=0.02201029844582081<br>SHAP=-0.131","None=170<br>Topic_1=0.806481122970581<br>Topic_0=0.06817451864480972<br>SHAP=-0.104","None=26<br>Topic_1=0.044933050870895386<br>Topic_0=0.1931244134902954<br>SHAP=0.063","None=101<br>Topic_1=0.9604512453079224<br>Topic_0=0.013125198893249035<br>SHAP=-0.137","None=392<br>Topic_1=0.03692954033613205<br>Topic_0=0.890349268913269<br>SHAP=0.064","None=317<br>Topic_1=0.036946769803762436<br>Topic_0=0.8895723223686218<br>SHAP=0.064","None=107<br>Topic_1=0.042518164962530136<br>Topic_0=0.3068446218967438<br>SHAP=0.063","None=49<br>Topic_1=0.06258571147918701<br>Topic_0=0.23478707671165466<br>SHAP=0.059","None=160<br>Topic_1=0.8029293417930603<br>Topic_0=0.0671776607632637<br>SHAP=-0.103","None=369<br>Topic_1=0.19267360866069794<br>Topic_0=0.34180623292922974<br>SHAP=0.031","None=223<br>Topic_1=0.6246621012687683<br>Topic_0=0.12510569393634796<br>SHAP=-0.064","None=381<br>Topic_1=0.02844349481165409<br>Topic_0=0.02797667868435383<br>SHAP=0.066","None=367<br>Topic_1=0.05003409460186958<br>Topic_0=0.8495184183120728<br>SHAP=0.061","None=362<br>Topic_1=0.02168196439743042<br>Topic_0=0.9357200264930725<br>SHAP=0.067","None=249<br>Topic_1=0.06516338139772415<br>Topic_0=0.06590047478675842<br>SHAP=0.058","None=328<br>Topic_1=0.004576965235173702<br>Topic_0=0.9862891435623169<br>SHAP=0.070","None=448<br>Topic_1=0.7395761013031006<br>Topic_0=0.08500548452138901<br>SHAP=-0.089","None=66<br>Topic_1=0.9116684794425964<br>Topic_0=0.03140879049897194<br>SHAP=-0.126","None=463<br>Topic_1=0.06252236664295197<br>Topic_0=0.06311145424842834<br>SHAP=0.059","None=320<br>Topic_1=0.6244313716888428<br>Topic_0=0.12517915666103363<br>SHAP=-0.064","None=125<br>Topic_1=0.7435234189033508<br>Topic_0=0.23571354150772095<br>SHAP=-0.090","None=142<br>Topic_1=0.311013400554657<br>Topic_0=0.3141467273235321<br>SHAP=0.005","None=234<br>Topic_1=0.05013295263051987<br>Topic_0=0.8473511934280396<br>SHAP=0.061","None=42<br>Topic_1=0.3112824559211731<br>Topic_0=0.4590100347995758<br>SHAP=0.004","None=190<br>Topic_1=0.023151788860559464<br>Topic_0=0.02461414225399494<br>SHAP=0.067","None=41<br>Topic_1=0.04201604425907135<br>Topic_0=0.8721272945404053<br>SHAP=0.063","None=252<br>Topic_1=0.05136300250887871<br>Topic_0=0.05074768140912056<br>SHAP=0.061","None=102<br>Topic_1=0.010368426330387592<br>Topic_0=0.010146521963179111<br>SHAP=0.070","None=261<br>Topic_1=0.8732739090919495<br>Topic_0=0.04171888157725334<br>SHAP=-0.118","None=351<br>Topic_1=0.011340592056512833<br>Topic_0=0.011340036056935787<br>SHAP=0.070","None=461<br>Topic_1=0.25<br>Topic_0=0.25<br>SHAP=0.018"],"x":[0.043343306,0.84803593,0.23384967,0.9572594,0.015304031,0.7493453,0.011582509,0.0518278,0.023641197,0.45739198,0.042246673,0.04312535,0.81230086,0.036215857,0.81217694,0.042436182,0.51153356,0.031464156,0.03368947,0.035866853,0.20575088,0.01901968,0.9547722,0.0365986,0.018405452,0.90362823,0.7496632,0.08339168,0.3951706,0.010493689,0.01942106,0.033314697,0.5989978,0.042859163,0.030053424,0.33966783,0.6468479,0.06253717,0.8439011,0.3039487,0.051926088,0.7387926,0.008619504,0.008149004,0.014917123,0.23034367,0.021799207,0.17446901,0.358747,0.32140124,0.0077474886,0.051216315,0.6224196,0.24452475,0.05048988,0.035772122,0.8426673,0.016857244,0.01907287,0.88768536,0.97454184,0.03736818,0.12612824,0.91490006,0.6665756,0.033267505,0.0836187,0.025775181,0.051897913,0.93499225,0.8064811,0.04493305,0.96045125,0.03692954,0.03694677,0.042518165,0.06258571,0.80292934,0.19267361,0.6246621,0.028443495,0.050034095,0.021681964,0.06516338,0.0045769652,0.7395761,0.9116685,0.06252237,0.6244314,0.7435234,0.3110134,0.050132953,0.31128246,0.023151789,0.042016044,0.051363003,0.010368426,0.8732739,0.011340592,0.25],"y":[0.06266506525561782,-0.11276535881469917,0.021181610859978713,-0.13622172753124506,0.0680725011546388,-0.09138122257128199,0.06933936791237358,0.0608060050944283,0.06671191066137473,-0.02728279221298156,0.06282324358250652,0.062326486785550674,-0.10503925467864153,0.06408401345690878,-0.10501206321713377,0.062474675581879434,-0.03972517152362607,0.06507849161322377,0.06427815586571399,0.06424454717082811,0.027704872851104317,0.06729736220774524,-0.1356907389577926,0.06419178779896044,0.06821475252330761,-0.12473474634796573,-0.09145039745706486,0.05389330606092598,-0.014124336767284695,0.06905698373509642,0.06759056778312698,0.06434959003789864,-0.05890404788966043,0.062381668994458524,0.06572946648649372,-0.0015466360333941873,-0.06877786179077995,0.058555473957118014,-0.11187281757954716,0.005896556679605466,0.06078778135909236,-0.0890807561058034,0.0694396568557957,0.06993200399889143,0.06864580157238238,0.022385414036401215,0.06673838459004429,0.03438064736772889,-0.00575256319568836,0.002590778492785127,0.07001535774929434,0.06093532133927642,-0.06368796606745575,0.01930781091214328,0.061090466276795784,0.06426441189118193,-0.11160097116576118,0.06860972118851054,0.0682971051494408,-0.12130735242463349,-0.1399127550562361,0.06384026661047143,0.044820669334550346,-0.12715172821903042,-0.07302707143010302,0.06469881863546259,0.05427837974127641,0.06590845359033518,0.06049152183995353,-0.13146101737371424,-0.10379056864586521,0.06254992992134491,-0.13690450058845133,0.06360945235979593,0.0636080205927394,0.06315416176912218,0.05875650512426997,-0.10301515327393083,0.030518035129026674,-0.06417953072765847,0.06589232846454882,0.0608905170897445,0.06675892249470114,0.057996766776214265,0.07026625868940509,-0.08925422275405455,-0.1264674802926107,0.05860978595275601,-0.06412903726139262,-0.09044855504683277,0.004608131975862035,0.06087496566191681,0.00436475037678468,0.06681752714311523,0.06256282293446805,0.06097185446231923,0.06959196313683337,-0.11820366979822194,0.06952659659259777,0.018026061209109677],"type":"scattergl"}],                        {"hovermode":"closest","paper_bgcolor":"#fff","plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Dependence plot for Topic_1"},"xaxis":{"title":{"text":"Topic_1"}},"yaxis":{"title":{"text":"SHAP value"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+    
+</div>
+        
+</div> 
+     
+</div>
+
+</div>
+<script type="text/javascript">
+
+$('#myTab a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    window.dispatchEvent(new Event('resize'));
+})
+
+</script>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+window.dispatchEvent(new Event('resize'));
+</script>
+        
+</html>
+    
